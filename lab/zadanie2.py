@@ -8,23 +8,33 @@ liste.
 """
 
 
-def sortowanie():
-    n = input('Podaj liczbe n: ')
-    dict1 = {}
+class Sort:
+    @staticmethod
+    def sortowanie():
+        n = input('Podaj liczbe n: ')
+        dict1 = {}
 
-    print("Podaj imiona i nazwiska: (w jednej lini imie inazwisko)")
-    for index in range(int(n)):
-        tmp = input().split(' ')
-        dict1[tmp[0]] = tmp[1]
+        print("Podaj imiona i nazwiska: (w jednej lini imie inazwisko)")
+        for index in range(int(n)):
+            tmp = input().split(' ')
+            dict1[tmp[0]] = tmp[1]
 
-    print("1 - Sortowanie wg imion")
-    print("2 - Sortowanie wg nazwisk")
-    sort = input()
+        print("1 - Sortowanie wg imion")
+        print("2 - Sortowanie wg nazwisk")
+        sort = input()
 
-    if sort == '1':
+        if sort == '1':
+            Sort.sort_by_name(dict1)
+        elif sort == '2':
+            Sort.sort_by_surname(dict1)
+
+    @staticmethod
+    def sort_by_name(dict1):
         [print("Imie: %s Nazwisko: %s" % (key, values)) for key, values in sorted(dict1.items())]
-    elif sort == '2':
+
+    @staticmethod
+    def sort_by_surname(dict1):
         [print("Imie: %s Nazwisko: %s" % (key, values)) for key, values in sorted(dict1.items(), key=lambda x: x[1])]
 
 
-sortowanie()
+Sort.sortowanie()

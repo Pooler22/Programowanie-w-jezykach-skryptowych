@@ -11,6 +11,8 @@ Skrypt powinien obslugiwac:
 
 import pickle
 
+from lab.zadanie2 import Sort
+
 
 class BazaDanych:
     def __init__(self):
@@ -23,10 +25,16 @@ class BazaDanych:
             '4) Usuwanie wpisow z "bazy danych".',
             '5) Wyswietlanie zawartosci "bazy danych".',
             '6) Wyswietlanie listy "opcji"'
+            '7) Wyświetl posortowane wg imion'
+            '8) Wyświetl posortowane wg nazwisk'
         ]
         self.open_help()
 
     def load_db(self, file_name=""):
+        """
+        Wczytuje baze danych z pliku
+        :param file_name: nazwa istaniejącej bazy danych
+        """
         if file_name == "":
             if self.base_name == "":
                 print("Error: podaj nazwę bazy")
@@ -44,6 +52,10 @@ class BazaDanych:
         self.check_wrapper()
 
     def save_db(self, file_name=""):
+        """
+        Zaposuje baze danych w pliku
+        :param file_name: nazwa bazy danych
+        """
         if file_name == "":
             if self.base_name == "":
                 print("Error: podaj nazwę bazy")
@@ -102,6 +114,10 @@ class BazaDanych:
             self.open_db()
         elif number == 6:
             self.open_help()
+        elif number == 7:
+            Sort.sort_by_name(self.base)
+        elif number == 8:
+            Sort.sort_by_surname(self.base)
 
 
 BazaDanych()
