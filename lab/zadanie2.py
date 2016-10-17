@@ -1,4 +1,4 @@
-"""
+﻿"""
 Wczytac liczbe n. Wczytac liste n imion i nazwisk (w jednej lini imie i
 nazwisko). Wyswietlic "menu":
 1 - Sortowanie wg imion
@@ -27,6 +27,8 @@ class Sort:
             Sort.sort_by_name(dict1)
         elif sort == '2':
             Sort.sort_by_surname(dict1)
+        elif sort == '3':
+            Sort.sort_by_surname2(base)
 
     @staticmethod
     def sort_by_name(dict1):
@@ -37,4 +39,4 @@ class Sort:
         [print("Imie: %s Nazwisko: %s" % (key, values)) for key, values in sorted(dict1.items(), key=lambda x: x[1])]
 
 
-Sort.sortowanie()
+#Sort.sortowanie()
