@@ -10,10 +10,31 @@ Skrypt powinien obslugiwac:
 """
 
 import pickle
+import urllib.request
+import sys
 
-
+from time import sleep
 from zadanie2 import Sort
 
+class Awesome:
+    @staticmethod
+    def progres():
+        for i in range(51):
+            sys.stdout.write('\r')
+            sys.stdout.write("%-50s %d%%" % ('\u2588'*i, 2*i))
+            sys.stdout.flush()
+            sleep(0.03)
+        sys.stdout.write('\n')
+            
+
+
+class Rekord:
+    def __init__(self, id_in, name, surname, number, email):
+        self.id = id_in
+        self.name  = name
+        self.surname =surname
+        self.number = number
+        self.email = email
 
 class BazaDanych:
     def __init__(self):
@@ -27,8 +48,8 @@ class BazaDanych:
             '     \u2588    4)  Usuwanie wpisow z "bazy danych".                            \u2588    ',
             '     \u2588    5)  Wyswietlanie zawartosci "bazy danych".                      \u2588    ',
             '     \u2588    6)  Wyswietlanie listy "opcji".                                 \u2588    ',
-            '     \u2588    7)  Wyświetl posortowane wg imion                               \u2588    ',
-            '     \u2588    8)  Wyświetl posortowane wg nazwisk                             \u2588    ',
+            '     \u2588    7)  Wyswietl posortowane wg imion                               \u2588    ',
+            '     \u2588    8)  Wyswietl posortowane wg nazwisk                             \u2588    ',
             '     \u2588    9)  Ladowanie danych z pliku o okreslonej nazwie.               \u2588    ',
         ]
         self.open_help()
@@ -36,12 +57,12 @@ class BazaDanych:
     def load_db(self, file_name=""):
         """
         Wczytuje baze danych z pliku
-        :param file_name: nazwa istaniejącej bazy danych
+        :param file_name: nazwa istaniejacej bazy danych
         """
         if file_name == "":
             if self.base_name == "":
-                print("Error: podaj nazwę bazy")
-                return self.load_db(input('Ładowanie: Nazwa bazy danych: '))
+                print("Error: podaj nazwe bazy")
+                return self.load_db(input('Ladowanie: Nazwa bazy danych: '))
             else:
                 print("Logowanie do bazy", self.base_name)
                 self.base_name = self.base_name
@@ -57,12 +78,12 @@ class BazaDanych:
     def load_file(self, file_name=""):
         """
         Wczytuje dane z pliku
-        :param file_name: nazwa istaniejącej bazy danych
+        :param file_name: nazwa istaniejacej bazy danych
         """
         if file_name == "":
             if self.base_name == "":
-                print("Error: podaj nazwę bazy")
-                return self.load_db(input('Ładowanie: Nazwa bazy danych: '))
+                print("Error: podaj nazwe bazy")
+                return self.load_db(input('Ladowanie: Nazwa bazy danych: '))
             else:
                 print("Logowanie do bazy", self.base_name)
                 self.base_name = self.base_name
@@ -82,14 +103,15 @@ class BazaDanych:
         """
         if file_name == "":
             if self.base_name == "":
-                print("Error: podaj nazwę bazy")
+                print("Error: podaj nazwe bazy")
                 return self.load_db(input('Zapisywanie: Nazwa bazy danych: '))
             else:
+                
                 print("Zapisywanie do bazy", self.base_name)
         else:
             print("Zapisywanie do ", file_name)
             self.base_name = file_name
-
+        Awesome.progres()
         with open(self.base_name, 'wb') as f:
             pickle.dump(self.base_dict, f)
 
@@ -100,6 +122,7 @@ class BazaDanych:
         splited_record = record.split(' ')
         #self.base.({'name': splited_record[0], 'surname': splited_record[1]})
         self.base_dict[splited_record[0]] = splited_record[1]
+        Awesome.progres()
         print('Zapisano nowy rekord')
 
         self.check_wrapper()
@@ -119,10 +142,11 @@ class BazaDanych:
         self.check_wrapper()
 
     def open_help(self):
+        sys.stdout.flush()
         print('     {:\u2588^70}'.format('\u2588'))
         print('     {:\u2588^70}'.format(' MyDB: Twoja  ulubiona aplikacja '))
         print('     {:\u2588^70}'.format('\u2588'))
-        print('     {:\u2588^70}'.format(' '))
+        print('     {:\u2588^70}'.format('MENU'))
         print('     {:\u2588^70}'.format('\u2588'))
         for a in self.menu1:
             print(a)
@@ -138,11 +162,11 @@ class BazaDanych:
     
     def check(self, number):
         if number == 1:
-            self.load_db(input('Ładowanie: Nazwa bazy danych: '))
+            self.load_db(input('Ladowanie: Nazwa bazy danych: '))
         elif number == 2:
             self.save_db(input('Zapis: Nazwa bazy danych: '))
         elif number == 3:
-            self.add_record(input('Dodawanie rekordu: Imię i nazwisko: '))
+            self.add_record(input('Dodawanie rekordu: Imie i nazwisko: '))
         elif number == 4:
             self.remove_record(input('Usówanie rekordu: Immię i nazwisko: '))
         elif number == 5:
@@ -156,7 +180,7 @@ class BazaDanych:
             Sort.sort_by_surname(self.base_dict)
             self.check_wrapper()
         elif number == 9:
-            self.load_file(input('Ładowanie: Nazwa pliku: '))
+            self.load_file(input('Ladowanie: Nazwa pliku: '))
             self.check_wrapper()
 
 
