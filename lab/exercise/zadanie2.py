@@ -1,4 +1,6 @@
-﻿"""
+﻿from __future__ import print_function
+
+"""
 Wczytac liczbe n. Wczytac liste n imion i nazwisk (w jednej lini imie i
 nazwisko). Wyswietlic "menu":
 1 - Sortowanie wg imion
@@ -32,7 +34,9 @@ class Sort:
 
     @staticmethod
     def sort_by_name(dict1):
-        [print("Imie: %s Nazwisko: %s" % (key, values)) for key, values in sorted(dict1.items())]
+        [
+        print(("Imie: %s Nazwisko: %s" % (key, values)))
+        for key, values in sorted(dict1.items())]
 
     @staticmethod
     def sort_by_surname(dict1):
