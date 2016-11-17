@@ -5,7 +5,7 @@ from colorama import init
 init()
 from colorama import Fore, Back, Style
 
-class Awesome:
+class AwesomeEffects:
     @staticmethod
     def progres():
         for i in range(51):

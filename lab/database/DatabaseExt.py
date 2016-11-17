@@ -1,7 +1,8 @@
 ﻿import pickle
 import sys
-import lab.Database
-#
+import lab.database.Database
+import lab.database.AwesomeEffects
+
 # import urllib.request
 # url = 'http://example.com/'
 # response = urllib.request.urlopen(url)
@@ -10,21 +11,31 @@ import lab.Database
 # print(text)
 
 
-class BazaDanych(lab.Database):
+# name = input("Your name, sir/madam? ")
+# while not name:
+#     print("You must give some name")
+#     name = input("Your name, sir/madam? ")
+# if name.title() != "Bill Gates":
+#     print("Welcome!")
+# else:
+#     print("Access denied")
+
+
+class DatabaseExt(lab.Database):
     def __init__(self):
         super().__init__()
 
         self.menu = [
-            '     \u2588    1)  Ladowanie "bazy danych" z pliku o okreslonej nazwie.        \u2588    ',
-            '     \u2588    2)  Zapisywanie "bazy danych" do pliku o okreslonej nazwie.     \u2588    ',
-            '     \u2588    3)  Dodawanie nowych wpisow do "bazy danych".                   \u2588    ',
-            '     \u2588    4)  Usuwanie wpisow z "bazy danych".                            \u2588    ',
-            '     \u2588    5)  Wyswietlanie zawartosci "bazy danych".                      \u2588    ',
-            '     \u2588    6)  Wyswietlanie listy "opcji".                                 \u2588    ',
-            '     \u2588    7)  Wyswietl posortowane wg imion                               \u2588    ',
-            '     \u2588    8)  Wyswietl posortowane wg nazwisk                             \u2588    ',
-            '     \u2588    9)  Ladowanie danych z pliku o okreslonej nazwie.               \u2588    ',
-        ]
+          '\t\u25881)  Ladowanie "bazy danych" z pliku o okreslonej nazwie.\t   \u2588    ',
+          '\t\u2588    2)  Zapisywanie "bazy danych" do pliku o okreslonej nazwie.\t\u2588    ',
+          '\t\u2588    3)  Dodawanie nowych wpisow do "bazy danych".\t\t\t    \u2588    ',
+          '\t\u2588    4)  Usuwanie wpisow z "bazy danych".\t\t\t\t\t   \u2588    ',
+          '\t\u2588    5)  Wyswietlanie zawartosci "bazy danych".\t\t\t\t  \u2588    ',
+          '\t\u2588    6)  Wyswietlanie listy "opcji".\t\t\t\t\t\t   \u2588    ',
+          '\t\u2588    7)  Wyswietl posortowane wg imion\t\t\t\t\t\t \u2588    ',
+          '\t\u2588    8)  Wyswietl posortowane wg nazwisk\t\t\t\t\t    \u2588    ',
+          '\t\u2588    9)  Ladowanie danych z pliku o okreslonej nazwie.\t\t\t\u2588    ',
+            ]
 
     def load_db(self, file_name=""):
         if file_name == "":
@@ -132,14 +143,14 @@ class BazaDanych(lab.Database):
         elif number == 6:
             self.open_help()
         elif number == 7:
-#            Sort.sort_by_name(self.base_dict)
+            #            Sort.sort_by_name(self.base_dict)
             self.check_wrapper()
         elif number == 8:
-#            Sort.sort_by_surname(self.base_dict)
+            #            Sort.sort_by_surname(self.base_dict)
             self.check_wrapper()
         elif number == 9:
             self.load_file(input('Ladowanie: Nazwa pliku: '))
             self.check_wrapper()
 
 
-BazaDanych().open_help()
+DatabaseExt().open_help()

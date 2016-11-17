@@ -24,40 +24,61 @@
 # todo: obiekt, ktory generuje losowe elementy(dwoch rodzajow) i dodaje do jednego z
 # todo: dwoch typow obiektow. Jeden z generatorow danych ma pobierac je z internetu.
 
-
-import pickle
+import json
+import itertools
+from lab.database.Record import Record
 
 
 class Database:
 
-
     def __init__(self):
-        self.base = {}
+        self.base = []
         self.name = ""
+        self.file_name = ""
 
-    def load_db(self, file_name):
-        self.name = file_name
-        with open(self.name) as f:
-            self.base = pickle.load(f)
-        return print(self.base)
+    # @property
+    # def name(self):
+    #     return self.name
+    #
+    # @name.setter
+    # def name(self, value):
+    #     self.name = value
+    #
+    # @name.deleter
+    # def name(self):
+    #     del self.name
 
-    def load_file(self, file_name):
-        self.name = file_name
-        with open(self.name) as f:
-            for line in f:
-                self.add_record(line.replace(',', ' '))
+    @staticmethod
+    def auto_increment(start_in=0, step_in=1):
+        i = start_in
+        while True:
+            yield i
+            i += step_in
 
-    def save_db(self, file_name):
-        self.name = file_name
-        with open(self.name) as f:
-            pickle.dump(self.base, f)
+    def save(self, file_name):
+        self.file_name = file_name
+        json.dump((self.name, self.base), open(self.file_name, 'w'))
 
-    def add_record(self, record):
-        splited_record = record.split(' ')
-        self.base[splited_record[0]] = splited_record[1]
+    def load(self, file_name):
+        self.file_name = file_name
+        self.name, self.base = json.load(open(self.file_name, 'r'))
 
-    def remove_record(self, record):
-        print("usuwanie rekord ", record)
+    def load_from_file(self, file_name, separator=','):
+        self.file_name = file_name
+        for line in (open(self.file_name, 'r', encoding='utf-8')):
+            name, surname = line.split(separator)
+            self.add_record(name, surname)
 
-    def open_db(self):
-        return self.base.items()
+    def add_record(self, name, surname):
+        new_id = self.auto_increment()
+        self.base.append(Record(new_id, name, surname))
+        # self.base[name] = surname
+
+    def remove_record(self, id_in):
+        del self.base[id_in]
+
+    def __eq__(self, other):
+        return self.name.__eq__(other.name) and self.base.__eq__(other.base)
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
