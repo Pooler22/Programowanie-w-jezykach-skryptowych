@@ -21,3 +21,21 @@ class AwesomeEffects:
         print(text)
         sys.stdout.write(Fore.CYAN)
 
+    @staticmethod
+    def info(text):
+        sys.stdout.write(Fore.RED)
+        print(text)
+        sys.stdout.write(Fore.CYAN)
+
+    @staticmethod
+    def succes(text):
+        sys.stdout.write(Fore.RED)
+        print(text)
+        sys.stdout.write(Fore.CYAN)
+
+    @staticmethod
+    def error(text):
+        sys.stdout.write(Fore.RED)
+        print(text)
+        sys.stdout.write(Fore.CYAN)
+

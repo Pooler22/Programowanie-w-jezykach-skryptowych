@@ -1,7 +1,5 @@
-﻿import pickle
-import sys
-import lab.database.Database
-import lab.database.AwesomeEffects
+﻿from lab.database.Database import Database
+from lab.database.AwesomeEffects import AwesomeEffects
 
 # import urllib.request
 # url = 'http://example.com/'
@@ -21,136 +19,70 @@ import lab.database.AwesomeEffects
 #     print("Access denied")
 
 
-class DatabaseExt(lab.Database):
-    def __init__(self):
-        super().__init__()
+class DatabaseExt(Database):
+    # def __init__(self):
+    #     Database().__init__()
 
-        self.menu = [
-          '\t\u25881)  Ladowanie "bazy danych" z pliku o okreslonej nazwie.\t   \u2588    ',
-          '\t\u2588    2)  Zapisywanie "bazy danych" do pliku o okreslonej nazwie.\t\u2588    ',
-          '\t\u2588    3)  Dodawanie nowych wpisow do "bazy danych".\t\t\t    \u2588    ',
-          '\t\u2588    4)  Usuwanie wpisow z "bazy danych".\t\t\t\t\t   \u2588    ',
-          '\t\u2588    5)  Wyswietlanie zawartosci "bazy danych".\t\t\t\t  \u2588    ',
-          '\t\u2588    6)  Wyswietlanie listy "opcji".\t\t\t\t\t\t   \u2588    ',
-          '\t\u2588    7)  Wyswietl posortowane wg imion\t\t\t\t\t\t \u2588    ',
-          '\t\u2588    8)  Wyswietl posortowane wg nazwisk\t\t\t\t\t    \u2588    ',
-          '\t\u2588    9)  Ladowanie danych z pliku o okreslonej nazwie.\t\t\t\u2588    ',
-            ]
-
-    def load_db(self, file_name=""):
-        if file_name == "":
-            if self.name == "":
-                print("Error: podaj nazwe bazy")
-                return self.load_db(input('Ladowanie: Nazwa bazy danych: '))
-            else:
-                print("Logowanie do bazy", self.name)
-                super().name = self.name
+    def save_ext(self):
+        file = input("Wprowadz nazwe pliku")
+        if file == "":
+            AwesomeEffects.error("Brak podanej nazwy pliku")
+            return
         else:
-            print("Logowanie do ", file_name)
-            super().name = file_name
-
-        with open(self.name, 'rb') as f:
-            super().base = pickle.load(f)
-        print(self.base)
-        self.check_wrapper()
-
-    def load_file(self, file_name=""):
-        if file_name == "":
-            if self.name == "":
-                print("Error: podaj nazwe bazy")
-                return self.load_db(input('Ladowanie: Nazwa bazy danych: '))
+            if self.save(file):
+                AwesomeEffects.succes("Dane zostaly zapisane")
             else:
-                print("Logowanie do bazy", self.name)
-                self.name = self.name
+                AwesomeEffects.error("Dane nie zostaly zapisane, istnieje już plik o takiej nazwie")
+                if input("Nadpisac? (Y/N)") == "Y":
+                    if self.save(file, True):
+                        AwesomeEffects.succes("Dane zostaly zapisane, plik nadpisany")
+                    else:
+                        AwesomeEffects.error("Dane nie zostaly zapisane, plik nie nadpisany")
+
+    def load_ext(self):
+        file = input("Wprowadz nazwe pliku")
+        if file == "":
+            AwesomeEffects.error("Brak podanej nazwy pliku")
+            return
         else:
-            print("Ladowanie z ", file_name)
-            self.name = file_name
-
-        with open(self.name, 'r') as f:
-            for line in f:
-                self.add_record(line.replace(',', ' '))
-        self.check_wrapper()
-
-    def save_db(self, file_name=""):
-        if file_name == "":
-            if self.name == "":
-                print("Error: podaj nazwe bazy")
-                return self.load_db(input('Zapisywanie: Nazwa bazy danych: '))
+            if self.load(file):
+                AwesomeEffects.succes("Dane zostaly wczytane")
             else:
+                AwesomeEffects.error("Dane nie zostaly wczytane")
 
-                print("Zapisywanie do bazy", self.name)
+    def load_from_file_ext(self):
+        file = input("Wprowadz nazwe pliku")
+        separator = input("Wprowadz rodzaj separatora (np przecinek)")
+        if file == "":
+            AwesomeEffects.error("Brak podanej nazwy pliku")
+            return
+        elif separator == "":
+            result = self.load_from_file(file)
         else:
-            print("Zapisywanie do ", file_name)
-            self.name = file_name
-        with open(self.name, 'wb') as f:
-            pickle.dump(self.base, f)
+            result = self.load_from_file(file, separator)
 
-        self.check_wrapper()
+        if not result:
+            AwesomeEffects.error("Dane nie zostaly wczytane")
+        elif result == 0:
+            AwesomeEffects.succes("dane nie zostaly wczytane, bledny format danych")
+        else:
+            AwesomeEffects.succes("Dane zostaly wczytane, Wczytano " + result + " rekordow")
 
-    def add_record(self, record):
-        print("nowy rekord ", record)
-        splited_record = record.split(' ')
-        # self.base.({'name': splited_record[0], 'surname': splited_record[1]})
-        self.base[splited_record[0]] = splited_record[1]
-        print('Zapisano nowy rekord')
-        self.check_wrapper()
+    def add_record_ext(self):
+        name, surname = input("Podaj dane oddzielone przecinkiem w kolejnosci: imie,nazwisko")
+        if self.add_record(name, surname):
+            AwesomeEffects.succes("Rekord zostal dodany")
+        else:
+            AwesomeEffects.error("Niepoprawne dane, rekord nie zostal dodany")
 
-    def remove_record(self, record):
-        print("usuwanie rekord ", record)
-
-        self.check_wrapper()
+    def remove_record_ext(self):
+        id_in = input("Podaj ID rekordu do usuniecia")
+        AwesomeEffects.progres()
+        if self.remove_record(id_in):
+            AwesomeEffects.succes("Rekord zostal usuniety")
+        else:
+            AwesomeEffects.error("Brak rekordu o podanym ID")
 
     def open_db(self):
-        print("Wyświetlam baze ")
-        print("Imie\t|\tNazwisko")
-        for keys, values in self.base.items():
-            print(keys, "\t|\t", values)
-        # print(self.base_dict)
-
-        self.check_wrapper()
-
-    def open_help(self):
-        sys.stdout.flush()
-        print('     {:\u2588^70}'.format('\u2588'))
-        print('     {:\u2588^70}'.format(' MyDB: Twoja  ulubiona aplikacja '))
-        print('     {:\u2588^70}'.format('\u2588'))
-        print('     {:\u2588^70}'.format('MENU'))
-        print('     {:\u2588^70}'.format('\u2588'))
-        for a in self.menu:
-            print(a)
-        print('     {:\u2588^70}'.format('\u2588'))
-
-        self.check_wrapper()
-
-    def check_wrapper(self):
-        self.check(int(input('Podaj nr opcji:')))
-
-    @staticmethod
-    def print_ext(text):
-        print("#", text, "#")
-
-    def check(self, number):
-        if number == 1:
-            self.load_db(input('Ladowanie: Nazwa bazy danych: '))
-        elif number == 2:
-            self.save_db(input('Zapis: Nazwa bazy danych: '))
-        elif number == 3:
-            self.add_record(input('Dodawanie rekordu: Imie i nazwisko: '))
-        elif number == 4:
-            self.remove_record(input('Usoanie rekordu: Immię i nazwisko: '))
-        elif number == 5:
-            self.open_db()
-        elif number == 6:
-            self.open_help()
-        elif number == 7:
-            #            Sort.sort_by_name(self.base_dict)
-            self.check_wrapper()
-        elif number == 8:
-            #            Sort.sort_by_surname(self.base_dict)
-            self.check_wrapper()
-        elif number == 9:
-            self.load_file(input('Ladowanie: Nazwa pliku: '))
-            self.check_wrapper()
-
-
-DatabaseExt().open_help()
+        AwesomeEffects.info("Wyświetlam baze")
+        [print(record) for record in self.base]

@@ -1,10 +1,10 @@
 # todo: Na bazie zadania 2 dodac do skryptu mozliwosc obslugi "bazy danych" w pliku.
-# todo: Skrypt powinien obslugiwac:
-# todo: 1) Ladowanie "bazy danych" z pliku o okreslonej nazwie.
-# todo: 2) Zapisywanie "bazy danych" do pliku o okreslonej nazwie.
-# todo: 3) Dodawanie nowych wpisow do "bazy danych".
-# todo: 4) Usuwanie wpisow z "bazy danych".
-# todo: 5) Wyswietlanie zawartosci "bazy danych".
+# Skrypt powinien obslugiwac:
+# 1) Ladowanie "bazy danych" z pliku o okreslonej nazwie.
+# 2) Zapisywanie "bazy danych" do pliku o okreslonej nazwie.
+# 3) Dodawanie nowych wpisow do "bazy danych".
+# 4) Usuwanie wpisow z "bazy danych".
+# 5) Wyswietlanie zawartosci "bazy danych".
 # todo: 6) Wyswietlanie listy "opcji"
 # todo: Do zadania 3 wykorzystac plik tekstowy z danymi w nastepujacym formacie:
 # todo: Wczytac liste zdalnie z pliku lista.txt.
@@ -25,14 +25,14 @@
 # todo: dwoch typow obiektow. Jeden z generatorow danych ma pobierac je z internetu.
 
 import json
-import itertools
+import os.path
+from lab.database.AutoIncrement import *
 from lab.database.Record import Record
 
 
-class Database:
-
+class Database(AutoIncrement):
     def __init__(self):
-        self.base = []
+        self.base = {}
         self.name = ""
         self.file_name = ""
 
@@ -47,35 +47,64 @@ class Database:
     # @name.deleter
     # def name(self):
     #     del self.name
+    #
+    # @property
+    # def base(self):
+    #     return self.base
+    #
+    # @base.setter
+    # def base(self, value):
+    #     self.base = value
+    #
+    # @base.deleter
+    # def base(self):
+    #     del self.base
 
-    @staticmethod
-    def auto_increment(start_in=0, step_in=1):
-        i = start_in
-        while True:
-            yield i
-            i += step_in
-
-    def save(self, file_name):
-        self.file_name = file_name
-        json.dump((self.name, self.base), open(self.file_name, 'w'))
+    def save(self, file_name, override=False):
+        if os.path.isfile(file_name) or not override:
+            return False
+        else:
+            self.file_name = file_name
+            json.dump((self.name, self.base), open(self.file_name, 'w'))
+            return True
 
     def load(self, file_name):
-        self.file_name = file_name
-        self.name, self.base = json.load(open(self.file_name, 'r'))
+        if os.path.isfile(file_name):
+            self.file_name = file_name
+            self.name, self.base = json.load(open(self.file_name, 'r'))
+            return True
+        else:
+            return False
 
     def load_from_file(self, file_name, separator=','):
-        self.file_name = file_name
-        for line in (open(self.file_name, 'r', encoding='utf-8')):
-            name, surname = line.split(separator)
-            self.add_record(name, surname)
+        if os.path.isfile(file_name):
+            i = 0
+            self.file_name = file_name
+            for line in (open(self.file_name, 'r', encoding='utf-8')):
+                name, surname = line.split(separator)
+                if name == "" or surname == "":
+                    return 0
+                else:
+                    self.add_record(name, surname)
+                    i += 1
+            return i
+        else:
+            return False
 
     def add_record(self, name, surname):
-        new_id = self.auto_increment()
-        self.base.append(Record(new_id, name, surname))
-        # self.base[name] = surname
+        if name == "" or surname == "":
+            return False
+        else:
+            new_id = self.auto_increment()
+            self.base[new_id] = Record(name, surname)
+            return True
 
     def remove_record(self, id_in):
-        del self.base[id_in]
+        if id_in in self.base:
+            del self.base[id_in]
+            return True
+        else:
+            return False
 
     def __eq__(self, other):
         return self.name.__eq__(other.name) and self.base.__eq__(other.base)

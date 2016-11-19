@@ -1,6 +1,7 @@
+from lab.database.AwesomeEffects import AwesomeEffects
+
 class Record:
-    def __init__(self, id_in, name, surname, number="", email=""):
-        self.id = id_in
+    def __init__(self,name, surname, number="", email=""):
         self.name = name
         self.surname = surname
         self.number = number
@@ -11,3 +12,6 @@ class Record:
 
     def __ne__(self, other):
         return not self.__eq__(other)
+
+    def __str__(self):
+        AwesomeEffects.succes(self.name + '\t' + self.surname + '\t' + self.number + '\t' + self.email)
