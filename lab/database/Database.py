@@ -5,8 +5,8 @@
 # 3) Dodawanie nowych wpisow do "bazy danych".
 # 4) Usuwanie wpisow z "bazy danych".
 # 5) Wyswietlanie zawartosci "bazy danych".
-# todo: 6) Wyswietlanie listy "opcji"
-# todo: Do zadania 3 wykorzystac plik tekstowy z danymi w nastepujacym formacie:
+# 6) Wyswietlanie listy "opcji"
+# Do zadania 3 wykorzystac plik tekstowy z danymi w nastepujacym formacie:
 # todo: Wczytac liste zdalnie z pliku lista.txt.
 # todo: Prosze zapewnic mozliwosc rozroznienia w bazie nowych i starych rekordow (w
 # todo: celu uzupelnienia "pustych" pol) wczytywanych z pliku "nowego formatu".
@@ -25,6 +25,8 @@
 # todo: dwoch typow obiektow. Jeden z generatorow danych ma pobierac je z internetu.
 
 import json
+import pickle
+import urllib.request
 import os.path
 from lab.database.AutoIncrement import *
 from lab.database.Record import Record
@@ -35,43 +37,37 @@ class Database(AutoIncrement):
         self.base = {}
         self.name = ""
         self.file_name = ""
+        self.index = 0
 
-    # @property
-    # def name(self):
-    #     return self.name
-    #
-    # @name.setter
-    # def name(self, value):
-    #     self.name = value
-    #
-    # @name.deleter
-    # def name(self):
-    #     del self.name
-    #
-    # @property
-    # def base(self):
-    #     return self.base
-    #
-    # @base.setter
-    # def base(self, value):
-    #     self.base = value
-    #
-    # @base.deleter
-    # def base(self):
-    #     del self.base
+    @staticmethod
+    def jdefault(o):
+        return o.__dict__
 
     def save(self, file_name, override=False):
-        if os.path.isfile(file_name) or not override:
-            return False
+        if os.path.isfile(file_name):
+            if override:
+                self.file_name = file_name
+                with open(self.file_name, 'w') as fp:
+                    json.dump(self, fp, default=self.jdefault)
+                return True
+            else:
+                return False
         else:
             self.file_name = file_name
-            json.dump((self.name, self.base), open(self.file_name, 'w'))
+            with open(self.file_name, 'w') as fp:
+                json.dump(self, fp, default=self.jdefault)
             return True
 
     def load(self, file_name):
         if os.path.isfile(file_name):
             self.file_name = file_name
-            self.name, self.base = json.load(open(self.file_name, 'r'))
+            a = json.load(open(self.file_name, 'r'))
+            b = json.loads(json.JSONEncoder().encode(a))
+            self.index = a["index"]
+            self.file_name = a["file_name"]
+            self.name = a["name"]
+            for (key, record) in b["base"].items():
+                self.base[key] = Record(record["name"], record["surname"], record["number"], record["email"])
             return True
         else:
             return False
@@ -91,12 +87,26 @@ class Database(AutoIncrement):
         else:
             return False
 
+    def load_from_url(self, file_url, separator_id, separator_data):
+        index = 0
+        if file_url == "":
+            return False
+        else:
+            response = urllib.request.urlopen(file_url).read().decode('utf-8')
+            for record in response.split('\n'):
+                index += 1
+                id_in, data = record.split(separator_id)
+                name, surname, addres, email = data.split(separator_data)
+                self.base[id_in.strip()] = Record(name.strip(), surname.strip(), addres.strip(), email.strip())
+        return index
+
     def add_record(self, name, surname):
         if name == "" or surname == "":
             return False
         else:
-            new_id = self.auto_increment()
-            self.base[new_id] = Record(name, surname)
+            new_id = AutoIncrement.auto_increment(self.index).__next__()
+            self.index += 1
+            self.base[str(new_id)] = Record(name, surname)
             return True
 
     def remove_record(self, id_in):
