@@ -1,7 +1,9 @@
 import sys
+
 from lab.database.Option import *
-from lab.database.AutoIncrement import AutoIncrement
-from lab.database.AwesomeEffects import AwesomeEffects
+
+from lab.database.database.AutoIncrement import AutoIncrement
+from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 
 class Menu(AutoIncrement):

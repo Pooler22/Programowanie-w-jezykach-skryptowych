@@ -1,13 +1,14 @@
 import sys
 from time import sleep
-
 from colorama import init
+
 init()
-from colorama import Fore, Back, Style
+from colorama import Fore
+
 
 class AwesomeEffects:
     @staticmethod
-    def progres():
+    def progress():
         for i in range(51):
             sys.stdout.write('\r')
             sys.stdout.write("%-50s %d%%" % ('\u2588' * i, 2 * i))
@@ -38,4 +39,3 @@ class AwesomeEffects:
         sys.stdout.write(Fore.RED)
         print(text)
         sys.stdout.write(Fore.CYAN)
-

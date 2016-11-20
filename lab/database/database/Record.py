@@ -1,5 +1,3 @@
-from lab.database.AwesomeEffects import AwesomeEffects
-
 class Record:
     def __init__(self, name, surname, number="", email=""):
         self.name = name

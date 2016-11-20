@@ -1,6 +1,7 @@
 import unittest
+
 from lab.database.Database import Database
-from lab.database.Record import Record
+from lab.database.database.Record import Record
 
 
 class DatabaseTestClass(unittest.TestCase):

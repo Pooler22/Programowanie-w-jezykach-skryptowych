@@ -1,5 +1,5 @@
 ﻿from lab.database.Database import Database
-from lab.database.AwesomeEffects import AwesomeEffects
+from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 
 class DatabaseExt(Database):
@@ -88,7 +88,7 @@ class DatabaseExt(Database):
     def remove_record_ext(self):
         AwesomeEffects.info("Podaj ID rekordu do usuniecia")
         id_in = input()
-        AwesomeEffects.progres()
+        AwesomeEffects.progress()
         if self.remove_record(id_in):
             AwesomeEffects.succes("Rekord zostal usuniety")
         else:
@@ -101,3 +101,22 @@ class DatabaseExt(Database):
             AwesomeEffects.info("Wyświetlam baze")
             for (key, value) in self.base.items():
                 print(str(key) + " " + str(value))
+
+    def sort_ext(self):
+        AwesomeEffects.info("Czy odwrocic sortowanie?(Y/N)")
+        reverse = False
+        if input() == "Y":
+            reverse = True
+        AwesomeEffects.info(
+            "Podaj atrybut wzgledem ktorego odbedzie sie sortowanie \n1)name 2)surname 3)number 4)email)")
+        column_name = input()
+        if column_name == "1":
+            self.sort("name", reverse)
+        elif column_name == "2":
+            self.sort("surname", reverse)
+        elif column_name == "3":
+            self.sort("number", reverse)
+        elif column_name == "4":
+            self.sort("email", reverse)
+        else:
+            AwesomeEffects.error("Nie rozpoznano nazwy atrybutu")

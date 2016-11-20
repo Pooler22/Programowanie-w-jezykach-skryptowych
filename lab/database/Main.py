@@ -1,5 +1,5 @@
-from lab.database.DatabaseExt import DatabaseExt
-from lab.database.Menu import Menu
+from lab.database.database.DatabaseExt import DatabaseExt
+from lab.database.gui.Menu import Menu
 
 db = DatabaseExt()
 
@@ -11,8 +11,7 @@ menu.add_option("Zapisywanie bazy danych do pliku o okreslonej nazwie.", db.save
 menu.add_option("Dodawanie nowych wpisow do bazy danych", db.add_record_ext)
 menu.add_option("Usuwanie wpisow z bazy danych", db.remove_record_ext)
 menu.add_option("Wyswietlanie zawartosci bazy danych", db.open_db_ext)
-#menu.add_option("Wyswietl posortowane wg imion", db.load_from_file)
-#menu.add_option("Wyswietl posortowane wg nazwisk", db.load_from_file)
+menu.add_option("Sortowanie", db.sort_ext)
 menu.add_option("Wyswietlanie listy opcji", menu.print)
 
 menu.print()

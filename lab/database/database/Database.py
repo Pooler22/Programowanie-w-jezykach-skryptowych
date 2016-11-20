@@ -1,35 +1,19 @@
-# todo: Na bazie zadania 2 dodac do skryptu mozliwosc obslugi "bazy danych" w pliku.
-# Skrypt powinien obslugiwac:
-# 1) Ladowanie "bazy danych" z pliku o okreslonej nazwie.
-# 2) Zapisywanie "bazy danych" do pliku o okreslonej nazwie.
-# 3) Dodawanie nowych wpisow do "bazy danych".
-# 4) Usuwanie wpisow z "bazy danych".
-# 5) Wyswietlanie zawartosci "bazy danych".
-# 6) Wyswietlanie listy "opcji"
-# Do zadania 3 wykorzystac plik tekstowy z danymi w nastepujacym formacie:
-# todo: Wczytac liste zdalnie z pliku lista.txt.
-# todo: Prosze zapewnic mozliwosc rozroznienia w bazie nowych i starych rekordow (w
-# todo: celu uzupelnienia "pustych" pol) wczytywanych z pliku "nowego formatu".
+# Wczytac liste zdalnie z pliku lista.txt.
+# todo: Prosze zapewnic mozliwosc rozroznienia w bazie nowych i starych rekordow (w celu uzupelnienia "pustych" pol)
+# wczytywanych z pliku "nowego formatu".
 # todo: Prosze zastosowac podmenu.
-# todo: Prosze stworzyc obiekt (klase abstrakcyjna) posiadajacy opcje:
-# todo: 1) Zapisywania listy do pliku
-# todo: 2) Wczytywania listy z pliku
-# todo: 3) Wyswietlania listy na ekranie
-# todo: Z tego obiektu maja dziedziczyc dwa obiekty zapewniajace odpowiednio
-# todo: implementacje tych operacji dla list "z pliku na dysku" (zadanie 3) i z pliku
-# todo: "na stronie" (zadanie 4).
-# todo: LosowÄ iloĹÄ obiektĂłw obu typĂłw dodaÄ do listy. NastÄpnie iterujÄc przez tÄ
-# todo: listÄ wywoĹaÄ funkcjÄ (np zapisu) BEZ sprawdzania typu obiektu!!!
+# todo: Z tego obiektu maja dziedziczyc dwa obiekty zapewniajace odpowiednio implementacje tych operacji dla list
+# "z pliku na dysku" (zadanie 3) i z pliku "na stronie" (zadanie 4). Losową ilość obiektów obu typów dodać do listy.
+# Następnie iterując przez tą listę wywołać funkcję (np zapisu) BEZ sprawdzania typu obiektu!!!
 # todo: Przygotowac obiekt losowo generujacy liste obiektow z zadania 5 oraz drugi
-# todo: obiekt, ktory generuje losowe elementy(dwoch rodzajow) i dodaje do jednego z
-# todo: dwoch typow obiektow. Jeden z generatorow danych ma pobierac je z internetu.
-
+# obiekt, ktory generuje losowe elementy(dwoch rodzajow) i dodaje do jednego z
+# dwoch typow obiektow. Jeden z generatorow danych ma pobierac je z internetu.
 import json
-import pickle
-import urllib.request
 import os.path
-from lab.database.AutoIncrement import *
-from lab.database.Record import Record
+import urllib.request
+
+from lab.database.database.AutoIncrement import *
+from lab.database.database.Record import Record
 
 
 class Database(AutoIncrement):
@@ -115,6 +99,9 @@ class Database(AutoIncrement):
             return True
         else:
             return False
+
+    def sort(self, column_name, reverse=False):
+        [print(key + " " + str(record)) for (key, record) in sorted(self.base.items(), key=lambda x: x[1].__getattribute__(column_name))]
 
     def __eq__(self, other):
         return self.name.__eq__(other.name) and self.base.__eq__(other.base)
