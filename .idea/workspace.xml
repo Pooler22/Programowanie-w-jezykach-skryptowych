@@ -7,15 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="734c919d-4e67-4341-bd4c-06f83845ed5f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lab/database/MainRecords.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/untitled.iml" afterPath="$PROJECT_DIR$/.idea/untitled.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/Main.py" afterPath="$PROJECT_DIR$/lab/database/Main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/MainDatabase.py" afterPath="$PROJECT_DIR$/lab/database/MainDatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/database/AbstractDatabase.py" afterPath="$PROJECT_DIR$/lab/database/database/AbstractDatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/database/DatabaseExt.py" afterPath="$PROJECT_DIR$/lab/database/database/DatabaseExt.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/gui/Menu.py" afterPath="$PROJECT_DIR$/lab/database/gui/Menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/MainRecords.py" afterPath="$PROJECT_DIR$/lab/database/MainRecords.py" />
     </list>
     <ignored path="Programowanie-w-jezykach-skryptowych.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +41,8 @@
       <file leaf-file-name="MainRecords.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab/database/MainRecords.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="119">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -652,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479597082425</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="prepare exercise 5_1 and 6a">
+      <created>1479750446073</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1479750446073</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -745,7 +745,8 @@
     <MESSAGE value="add unit tests" />
     <MESSAGE value="prin menu" />
     <MESSAGE value="prepare exercise 3_1" />
-    <option name="LAST_COMMIT_MESSAGE" value="prepare exercise 3_1" />
+    <MESSAGE value="prepare exercise 5_1 and 6a" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare exercise 5_1 and 6a" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -975,8 +976,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab/database/MainRecords.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
