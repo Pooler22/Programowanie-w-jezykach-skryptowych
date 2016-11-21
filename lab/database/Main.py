@@ -1,9 +1,8 @@
+import lab.database.gui.Menu
 from lab.database.database.DatabaseExt import DatabaseExt
-from lab.database.gui.Menu import Menu
-
 db = DatabaseExt()
 
-menu = Menu()
+menu = lab.database.gui.Menu.Menu()
 menu.add_option("Ladowanie bazy danych o okreslonej nazwie.", db.load_ext)
 menu.add_option("Ladowanie bazy danych z pliku.", db.load_from_file_ext)
 menu.add_option("Ladowanie bazy danych z URL.", db.load_from_url_ext)

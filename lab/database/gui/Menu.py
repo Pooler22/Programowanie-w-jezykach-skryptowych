@@ -1,6 +1,6 @@
 import sys
 
-from lab.database.Option import *
+from lab.database.gui.Option import *
 
 from lab.database.database.AutoIncrement import AutoIncrement
 from lab.database.gui.AwesomeEffects import AwesomeEffects

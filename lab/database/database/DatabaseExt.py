@@ -1,4 +1,4 @@
-﻿from lab.database.Database import Database
+﻿from lab.database.database.Database import Database
 from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 

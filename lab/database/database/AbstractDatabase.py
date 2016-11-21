@@ -3,21 +3,21 @@ from abc import ABC, abstractmethod
 
 class AbstractDatabase(ABC):
     @abstractmethod
-    def __init__(self):
+    def __init__(self,asd):
         self.base = {}
         self.file_name = ""
 
     @abstractmethod
     def save(self,file_name, override=False):
-        print("save")
+        pass
 
     @abstractmethod
     def load(self, file_name, separator):
-        print("load")
+        pass
 
     @abstractmethod
     def show(self):
-        print("show")
+        pass
 
     @staticmethod
     def jdefault(o):
