@@ -59,15 +59,16 @@ class DatabaseExt(Database):
     def load_from_url_ext(self):
         AwesomeEffects.info("Podaj url (domyslnie link z tresci zadania)")
         url = input("")
-        if url == "":
-            url = "http://mmajchr.kis.p.lodz.pl/pwjs/zadania/lista.txt"
         AwesomeEffects.info("Podaj  separtor id od danych (domyslnie: ) )")
         separator_id = input()
         AwesomeEffects.info("Podaj separator miedzy danymi")
         separator_data = input()
-        if separator_data == "":
+
+        if url.__len__() == 0:
+            url = "http://mmajchr.kis.p.lodz.pl/pwjs/zadania/lista.txt"
+        if separator_data.__len__() == 0:
             separator_data = ","
-        if separator_id == "":
+        if separator_id.__len__() == 0:
             separator_id = ")"
         result = self.load_from_url(url, separator_id, separator_data)
         if not result:
@@ -79,8 +80,18 @@ class DatabaseExt(Database):
 
     def add_record_ext(self):
         AwesomeEffects.info("Podaj dane oddzielone spacja w kolejnosci: imie nazwisko")
-        name, surname = input().split()
-        if self.add_record(name, surname):
+        result = False
+        in_data = input()
+        data = in_data.split()
+
+        if data.__len__() == 2:
+            result = self.add_record(data[0], data[1])
+        elif data.__len__() == 3:
+            result = self.add_record(data[0], data[1], data[2])
+        elif data.__len__() == 4:
+            result = self.add_record(data[0], data[1], data[2], data[3])
+
+        if result:
             AwesomeEffects.succes("Rekord zostal dodany")
         else:
             AwesomeEffects.error("Niepoprawne dane, rekord nie zostal dodany")

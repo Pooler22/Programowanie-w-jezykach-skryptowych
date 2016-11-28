@@ -10,7 +10,8 @@ class Record:
         return o.__dict__
 
     def __eq__(self, other):
-        return self.name.__eq__(other.name) and self.surname.__eq__(other.surname) and self.number.__eq__(other.number) and self.email.__eq__(other.email)
+        return self.name.__eq__(other.name) and self.surname.__eq__(other.surname) and self.number.__eq__(
+            other.number) and self.email.__eq__(other.email)
 
     def __ne__(self, other):
         return not self.__eq__(other)

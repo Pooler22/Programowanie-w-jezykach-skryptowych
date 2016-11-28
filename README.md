@@ -8,14 +8,11 @@ Skrypt powinien obslugiwac:~~
 ~~5) Wyswietlanie zawartosci "bazy danych".~~
 ~~6) Wyswietlanie listy "opcji"~~
 
-TODO: dodać obsluge dodawania z wieksza liczba parameterow
 TODO: wyswietlanie wg nr id
 
 ~~3_1~~
 ~~Do zadania 3 wykorzystac plik tekstowy z danymi w nastepujacym formacie:
 Imie(znak nie bedacy bialem znakiem lub litera)Nazwisko~~
-
-TODO: nadpisywanie rekordow
 
 ~~4~~
 ~~Wczytac liste zdalnie z pliku lista.txt.~~

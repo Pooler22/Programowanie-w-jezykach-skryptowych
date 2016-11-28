@@ -23,6 +23,7 @@ class Menu(AutoIncrement):
             option_number = int(input())
             if 0 < option_number < self.options.__len__() + 1:
                 AwesomeEffects.info("Wywołanie funkcji o numerze " + str(option_number))
+                sys.stdin.flush()
                 self.options.__getitem__(int(option_number-1)).function()
             else:
                 sys.stdin.flush()
