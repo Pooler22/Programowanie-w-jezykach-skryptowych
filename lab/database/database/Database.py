@@ -61,11 +61,11 @@ class Database(AutoIncrement):
             i = 0
             self.file_name = file_name
             for line in (open(self.file_name, 'r', encoding='utf-8')):
-                name, surname = line.split(separator)
+                name, surname, addres, email = line.split(separator)
                 if name == "" or surname == "":
                     return 0
                 else:
-                    self.add_record(name, surname)
+                    self.add_record(name, surname, addres, email)
                     i += 1
             return i
         else:
@@ -82,15 +82,16 @@ class Database(AutoIncrement):
                 id_in, data = record.split(separator_id)
                 name, surname, addres, email = data.split(separator_data)
                 self.base[id_in.strip()] = Record(name.strip(), surname.strip(), addres.strip(), email.strip())
+            self.index = index
         return index
 
-    def add_record(self, name, surname):
+    def add_record(self, name, surname, sddres="", email=""):
         if name == "" or surname == "":
             return False
         else:
             new_id = AutoIncrement.auto_increment(self.index).__next__()
             self.index += 1
-            self.base[str(new_id)] = Record(name, surname)
+            self.base[str(new_id)] = Record(name, surname,sddres,email)
             return True
 
     def remove_record(self, id_in):
