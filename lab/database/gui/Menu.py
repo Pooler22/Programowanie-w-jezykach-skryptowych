@@ -7,11 +7,17 @@ from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 
 class Menu(AutoIncrement):
-    def __init__(self):
+    def __init__(self, description):
+        self.description = description
         self.options = []
         self.ai = AutoIncrement.auto_increment(1)
 
+    def init_menu(self):
+        self.print()
+        self.select_option()
+
     def print(self):
+        print(self.description)
         [print(option) for option in self.options]
 
     def add_option(self, text, function):
@@ -19,9 +25,11 @@ class Menu(AutoIncrement):
 
     def select_option(self):
         try:
-            AwesomeEffects.info("Wpisz numer opcji:")
+            AwesomeEffects.info("Wpisz numer opcji( 0 -pomoc):")
             option_number = int(input())
-            if 0 < option_number < self.options.__len__() + 1:
+            if option_number == 0:
+                self.init_menu()
+            elif option_number < self.options.__len__() + 1:
                 AwesomeEffects.info("Wywołanie funkcji o numerze " + str(option_number))
                 sys.stdin.flush()
                 self.options.__getitem__(int(option_number-1)).function()

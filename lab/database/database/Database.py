@@ -44,7 +44,7 @@ class Database(AutoIncrement):
 
             b = json.loads(json.JSONEncoder().encode(a))
             for (key, record) in b["base"].items():
-                self.base[key] = Record(record["name"], record["surname"], record["number"], record["email"])
+                self.base[int(key)] = Record(record["name"], record["surname"], record["number"], record["email"])
                 self.index += 1
             return True
         else:
@@ -74,22 +74,21 @@ class Database(AutoIncrement):
                 if raw_data.__len__() == 2:
                     data_splited = raw_data[1].split(separator_data)
                     if data_splited.__len__() == 2:
-                        self.base[str(raw_data[0])] = Record(data_splited[0], data_splited[1])
+                        self.base[int(raw_data[0])] = Record(data_splited[0], data_splited[1])
                         self.index += 1
                     if data_splited.__len__() == 3:
-                        self.base[str(raw_data[0])] = Record(data_splited[0], data_splited[1], data_splited[2])
+                        self.base[int(raw_data[0])] = Record(data_splited[0], data_splited[1], data_splited[2])
                         self.index += 1
                     if data_splited.__len__() == 4:
-                        self.base[str(raw_data[0])] = Record(data_splited[0], data_splited[1], data_splited[2], data_splited[3])
+                        self.base[int(raw_data[0])] = Record(data_splited[0], data_splited[1], data_splited[2], data_splited[3])
                         self.index += 1
             return self.index
-        return False
 
     def add_record(self, name, surname, address="", email=""):
         if name == "" or surname == "":
             return False
         else:
-            self.base[str(AutoIncrement.auto_increment(self.index).__next__())] = Record(name, surname, address,email)
+            self.base[int(AutoIncrement.auto_increment(self.index).__next__())] = Record(name, surname, address,email)
             self.index += 1
             return True
 
@@ -103,6 +102,13 @@ class Database(AutoIncrement):
     def sort(self, column_name, reverse=False):
         [print(key + " " + str(record)) for (key, record) in
          sorted(self.base.items(), key=lambda x: x[1].__getattribute__(column_name))]
+
+    def open_db(self):
+        for (key, value) in sorted(self.base.items()):
+            print(str(key) + " " + str(value))
+
+    def open_incomplete_records(self):
+        {print(str(key) + " " + str(record)) for key, record in sorted(self.base.items()) if record.is_incomplete_records()}
 
     def __eq__(self, other):
         return self.name.__eq__(other.name) and self.base.__eq__(other.base)

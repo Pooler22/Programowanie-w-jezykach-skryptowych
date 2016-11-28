@@ -8,8 +8,6 @@ Skrypt powinien obslugiwac:~~
 ~~5) Wyswietlanie zawartosci "bazy danych".~~
 ~~6) Wyswietlanie listy "opcji"~~
 
-TODO: wyswietlanie wg nr id
-
 ~~3_1~~
 ~~Do zadania 3 wykorzystac plik tekstowy z danymi w nastepujacym formacie:
 Imie(znak nie bedacy bialem znakiem lub litera)Nazwisko~~
@@ -17,10 +15,9 @@ Imie(znak nie bedacy bialem znakiem lub litera)Nazwisko~~
 ~~4~~
 ~~Wczytac liste zdalnie z pliku lista.txt.~~
 
-4_1
-Prosze zapewnic mozliwosc rozroznienia w bazie nowych i starych rekordow (w
-celu uzupelnienia "pustych" pol) wczytywanych z pliku "nowego formatu".
-Prosze zastosowac podmenu.
+~~4_1~~
+~~Prosze zapewnic mozliwosc rozroznienia w bazie nowych i starych rekordow (w celu uzupelnienia "pustych" pol) wczytywanych z pliku "nowego formatu".~~
+~~Prosze zastosowac podmenu.~~
 
 5
 ~~Prosze stworzyc obiekt (klase abstrakcyjna) posiadajacy opcje:~~

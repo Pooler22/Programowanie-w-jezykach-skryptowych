@@ -110,8 +110,11 @@ class DatabaseExt(Database):
             AwesomeEffects.info("Baza danych jest pusta")
         else:
             AwesomeEffects.info("Wyświetlam baze")
-            for (key, value) in self.base.items():
-                print(str(key) + " " + str(value))
+            self.open_db()
+
+    def open_incomplete_records_ext(self):
+        AwesomeEffects.info("Wyswietlanie rekordow z danymi niekompletnymi")
+        self.open_incomplete_records()
 
     def sort_ext(self):
         AwesomeEffects.info("Czy odwrocic sortowanie?(Y/N)")
