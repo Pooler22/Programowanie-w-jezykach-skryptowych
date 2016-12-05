@@ -39,4 +39,4 @@ class RemoteDatabase(objectAbstractClass):
 
     def show(self):
         for (key, value) in self.base.items():
-            print(str(key) + " " + str(value))
+            AwesomeEffects.info(str(key) + " " + str(value))

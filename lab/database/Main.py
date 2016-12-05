@@ -1,8 +1,26 @@
 import lab.database.gui.Menu
 from lab.database.database.DatabaseExt import DatabaseExt
-db = DatabaseExt()
+from lab.database.gui.AwesomeEffects import AwesomeEffects
 
+db = DatabaseExt()
 menu = lab.database.gui.Menu.Menu("Menu: Glowne")
+menu.add_graphic("""                                                                                                       ____                                                                                                                                         ###
+###                                                                                                                   _.-'78o `"`--._                                                                                                                          ###
+###                                                                                                               ,o888o.  .o888o,   ''-.                                                                                                                      ###
+###                                                                                                             ,88888P  `78888P..______.]                                                                                                                     ###
+###                                                                                                           /_..__..----""        __.'                                                                                                                       ###
+###                                                                                                            `-._       /""| _..-''                                                                                                                          ###
+###                                                                                                                "`-----\  `\\                                                                                                                                ###
+###                                                                                                                        |   ;.-""--..                                                                                                                       ###
+###                                                                                                                        | ,8o.  o88. `.                                                                                                                     ###
+###                                                                                                                        `;888P  `788P  :                                                                                                                    ###
+###                                                                                                                 .o""-.|`-._         ./                                                                                                                     ###
+###                                                                                                                 J88 _.-/    ";"-P----'                                                                                                                     ###
+###                                                                                                                 `--'\`|     /  /                                                                                                                           ###
+###                                                                                                                     | /     |  |                                                                                                                           ###
+###                                                                                                                     \|     /   |00                                                                                                                         ###
+###                                                                                                                      `-----`---'                                                                                                                           ###
+""")
 load_menu = lab.database.gui.Menu.Menu("Menu: Wczytywanie danych")
 view_menu = lab.database.gui.Menu.Menu("Menu: Wyswietlanie danych")
 

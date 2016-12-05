@@ -1,6 +1,7 @@
 import json
 import os
 
+from lab.database.gui.AwesomeEffects import AwesomeEffects
 from lab.database.database.AbstractDatabase import *
 from lab.database.database.AutoIncrement import *
 from lab.database.database.Record import Record
@@ -51,4 +52,4 @@ class LocalDatabase(objectAbstractClass):
 
     def show(self):
         for (key, value) in self.base.items():
-            print(str(key) + " " + str(value))
+            AwesomeEffects.info(str(key) + " " + str(value))

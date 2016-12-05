@@ -18,24 +18,32 @@ class AwesomeEffects:
 
     @staticmethod
     def normal(text):
-        sys.stdout.write(Fore.RED)
-        print(text)
+        sys.stdout.write(Fore.CYAN)
+        sys.stdout.write('{:^250}'.format(text))
         sys.stdout.write(Fore.CYAN)
 
     @staticmethod
     def info(text):
-        sys.stdout.write(Fore.RED)
-        print(text)
+        sys.stdout.write(Fore.BLUE)
+        print("###\t\t\t" + '{:243}'.format(text) + "###")
+        sys.stdout.write(Fore.CYAN)
+
+    @staticmethod
+    def line(text):
+        sys.stdout.write(Fore.BLUE)
+        print('{:#<243}'.format("#"))
         sys.stdout.write(Fore.CYAN)
 
     @staticmethod
     def succes(text):
-        sys.stdout.write(Fore.RED)
-        print(text)
+        sys.stdout.write(Fore.GREEN)
+        sys.stdout.write('{:^300}'.format(text))
         sys.stdout.write(Fore.CYAN)
 
     @staticmethod
     def error(text):
         sys.stdout.write(Fore.RED)
-        print(text)
+        sys.stdout.write('{:^300}'.format(text))
         sys.stdout.write(Fore.CYAN)
+
+

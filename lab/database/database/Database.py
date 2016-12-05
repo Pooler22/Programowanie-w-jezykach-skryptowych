@@ -2,6 +2,7 @@ import json
 import os.path
 import urllib.request
 
+from lab.database.gui.AwesomeEffects import AwesomeEffects
 from lab.database.database.AutoIncrement import *
 from lab.database.database.Record import Record
 
@@ -100,15 +101,15 @@ class Database(AutoIncrement):
             return False
 
     def sort(self, column_name, reverse=False):
-        [print(key + " " + str(record)) for (key, record) in
+        [AwesomeEffects.info(key + " " + str(record)) for (key, record) in
          sorted(self.base.items(), key=lambda x: x[1].__getattribute__(column_name))]
 
     def open_db(self):
         for (key, value) in sorted(self.base.items()):
-            print(str(key) + " " + str(value))
+            AwesomeEffects.info(str(key) + " " + str(value))
 
     def open_incomplete_records(self):
-        {print(str(key) + " " + str(record)) for key, record in sorted(self.base.items()) if record.is_incomplete_records()}
+        {AwesomeEffects.info(str(key) + " " + str(record)) for key, record in sorted(self.base.items()) if record.is_incomplete_records()}
 
     def __eq__(self, other):
         return self.name.__eq__(other.name) and self.base.__eq__(other.base)

@@ -1,6 +1,7 @@
 import urllib.request
 from lab.database.database.Database import Database
 
+
 def load_from_url(url, file_name):
     return urllib.request.urlopen(url + file_name).read().decode('utf-8').split('\n')
 
@@ -20,15 +21,15 @@ def exercise6a():
 
 db = Database()
 
+
 def exercise6b():
     names = load_from_url(path, files[0])
     surnames = load_from_url(path, files[1])
-    for i in range(1, surnames.__len__()-1):
-        db.add_record(names[(names.__len__() % i - 2)], surnames[i])
-    db.open_db()
-
-
-
+    for i in range(0, surnames.__len__()):
+        print(i)
+        # db.add_record(names[(names.__len__() % i - 2)], surnames[i])
+    # db.open_db()
+    # print(db.base.__len__())
 
 
 exercise6a()
