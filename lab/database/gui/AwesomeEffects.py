@@ -2,7 +2,6 @@ import sys, os
 from time import sleep
 from colorama import init
 
-
 init()
 from colorama import Fore, Back
 
@@ -15,7 +14,8 @@ class AwesomeEffects:
         self.info("tests")
         self.clean()
 
-    def clean(self):
+    @staticmethod
+    def clean():
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def progress(self):
@@ -30,13 +30,15 @@ class AwesomeEffects:
         self.print_ext(Fore.CYAN, text)
 
     def info(self, text):
+        print('Xdziala 6')
         self.print_ext(Fore.BLUE, text)
+        print('Xdziala 6')
 
-    def line(self, text):
-        tmp0 = text * 64
+    def line(self, text='═', start='╠', end='╣'):
+        tmp0 = text * 62
         sys.stdout.write(Fore.BLUE)
         sys.stdout.write(self.colorBack)
-        tmp1 = '{:60}'.format(tmp0)
+        tmp1 = '{:54}'.format(start + tmp0 + end)
         tmp2 = '{:^' + str(self.get_window_size()[0]) + '}'
         sys.stdout.write(tmp2.format(tmp1) + '\n')
         sys.stdout.write(Fore.BLUE)
@@ -47,14 +49,19 @@ class AwesomeEffects:
     def error(self, text):
         self.print_ext(Fore.RED, text)
 
-
     def print_ext(self, color, text):
+        print('dziala 1')
         sys.stdout.write(color)
+        print('dziala 2')
         sys.stdout.write(self.colorBack)
-        tmp1 = '| '+'{:60}'.format(text)+' |'
-        tmp2 = '{:^'+str(self.get_window_size()[0])+'}'
+        print('dziala 3')
+        tmp1 = '║ ' + '{:60}'.format(text) + ' ║'
+        print('dziala 4')
+        tmp2 = '{:^' + str(self.get_window_size()[0]) + '}'
+        print('dziala 5')
         sys.stdout.write(tmp2.format(tmp1) + '\n')
         sys.stdout.write(self.colorFore)
+        print('dziala 6')
 
     @staticmethod
     def get_window_size():
@@ -72,4 +79,3 @@ class AwesomeEffects:
             sizex, sizey = 80, 25  # can't determine actual size - return default values
 
         return sizex, sizey
-

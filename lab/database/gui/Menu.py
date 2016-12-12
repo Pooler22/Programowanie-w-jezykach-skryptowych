@@ -10,7 +10,6 @@ class Menu(AutoIncrement):
     def __init__(self, description):
         self.description = description
         self.awesome_effects = AwesomeEffects()
-
         self.graphic = ""
         self.options = []
         self.ai = AutoIncrement.auto_increment(1)
@@ -20,19 +19,21 @@ class Menu(AutoIncrement):
 
     def init_menu(self):
         self.print()
+        self.awesome_effects.line('═', '╔', '╗')
         self.select_option()
 
     def print(self):
         self.awesome_effects.clean()
-        if(self.graphic != ""):
-            self.awesome_effects.line('_')
+        if self.graphic != "":
+            self.awesome_effects.line('═', '╔', '╗')
             self.awesome_effects.info(self.graphic)
+            self.awesome_effects.line('═', '╚', '╝')
 
-        self.awesome_effects.line('_')
+        self.awesome_effects.line('═', '╔', '╗')
         self.awesome_effects.info(self.description)
-        self.awesome_effects.line('_')
+        self.awesome_effects.line()
         [self.awesome_effects.info(str(option)) for option in self.options]
-        self.awesome_effects.line('_')
+        self.awesome_effects.line('═', '╚', '╝')
 
     def add_option(self, text, function):
         self.options.append(Option(self.ai.__next__(), text, function))
@@ -44,7 +45,7 @@ class Menu(AutoIncrement):
             if option_number == 0:
                 self.init_menu()
             elif option_number < self.options.__len__() + 1:
-                self.awesome_effects.info("Wywołanie funkcji o numerze " + str(option_number))
+                self.awesome_effects.info("Wywołanie funkcji o numerze {:d}".format(option_number))
                 sys.stdin.flush()
                 self.options.__getitem__(int(option_number - 1)).function()
             else:

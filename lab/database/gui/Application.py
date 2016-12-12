@@ -31,8 +31,5 @@ class Application:
         self.view_menu.add_option("Wroc", self.menu.init_menu)
 
     def init(self):
-        # print("Podaj szerokość okna (np: 40)")
-        # self.width = input()
-
         self.menu.init_menu()
 
