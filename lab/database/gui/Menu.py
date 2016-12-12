@@ -7,9 +7,9 @@ from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 
 class Menu(AutoIncrement):
-    def __init__(self, description, width=40):
+    def __init__(self, description):
         self.description = description
-        self.awesome_effects = AwesomeEffects(width)
+        self.awesome_effects = AwesomeEffects()
 
         self.graphic = ""
         self.options = []
@@ -23,10 +23,16 @@ class Menu(AutoIncrement):
         self.select_option()
 
     def print(self):
-        print('{:#<258}'.format(''))
-        self.awesome_effects.info(self.graphic)
+        self.awesome_effects.clean()
+        if(self.graphic != ""):
+            self.awesome_effects.line('_')
+            self.awesome_effects.info(self.graphic)
+
+        self.awesome_effects.line('_')
         self.awesome_effects.info(self.description)
+        self.awesome_effects.line('_')
         [self.awesome_effects.info(str(option)) for option in self.options]
+        self.awesome_effects.line('_')
 
     def add_option(self, text, function):
         self.options.append(Option(self.ai.__next__(), text, function))

@@ -1,7 +1,5 @@
-from lab.database.gui.AwesomeEffects import AwesomeEffects
 from lab.database.database.DatabaseExt import DatabaseExt
 from lab.database.gui.Menu import Menu
-
 
 class Application:
     def __init__(self):
@@ -9,7 +7,7 @@ class Application:
         self.width = 0
 
         self.menu = Menu("Menu: Glowne")
-        self.menu.add_graphic("""asd""")
+        self.menu.add_graphic("""Witaj w aplikacji moja baza :)""")
         self.load_menu = Menu("Menu: Wczytywanie danych")
         self.view_menu = Menu("Menu: Wyswietlanie danych")
 
@@ -33,8 +31,8 @@ class Application:
         self.view_menu.add_option("Wroc", self.menu.init_menu)
 
     def init(self):
-        print("Podaj szerokość okna (np: 40)")
-        self.width = input()
+        # print("Podaj szerokość okna (np: 40)")
+        # self.width = input()
 
         self.menu.init_menu()
 

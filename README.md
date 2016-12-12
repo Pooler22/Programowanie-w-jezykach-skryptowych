@@ -1,3 +1,6 @@
+pip install python-color-logger
+pip install asciimatics
+
 ~~3~~
 ~~Na bazie zadania 2 dodac do skryptu mozliwosc obslugi "bazy danych" w pliku.
 Skrypt powinien obslugiwac:~~

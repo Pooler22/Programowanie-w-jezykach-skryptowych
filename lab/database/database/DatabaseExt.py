@@ -5,7 +5,7 @@ from lab.database.gui.AwesomeEffects import AwesomeEffects
 class DatabaseExt(Database):
     def __init__(self, width=40):
         super().__init__()
-        self.awesome_effects = AwesomeEffects(width)
+        self.awesome_effects = AwesomeEffects()
 
     def save_ext(self):
         self.awesome_effects.info("Wprowadz nazwe pliku")
@@ -15,13 +15,13 @@ class DatabaseExt(Database):
             return
         else:
             if self.save(file):
-                self.awesome_effects.succes("Dane zostaly zapisane")
+                self.awesome_effects.success("Dane zostaly zapisane")
             else:
                 self.awesome_effects.error("Dane nie zostaly zapisane, istnieje już plik o takiej nazwie")
                 self.awesome_effects.info("Nadpisac? (Y/N)")
                 if input() == "Y":
                     if self.save(file, True):
-                        self.awesome_effects.succes("Dane zostaly zapisane, plik nadpisany")
+                        self.awesome_effects.success("Dane zostaly zapisane, plik nadpisany")
                     else:
                         self.awesome_effects.error("Dane nie zostaly zapisane, plik nie nadpisany")
 
@@ -33,7 +33,7 @@ class DatabaseExt(Database):
             return
         else:
             if self.load(file):
-                self.awesome_effects.succes("Dane zostaly wczytane")
+                self.awesome_effects.success("Dane zostaly wczytane")
             else:
                 self.awesome_effects.error("Dane nie zostaly wczytane")
 
@@ -53,9 +53,9 @@ class DatabaseExt(Database):
         if not result:
             self.awesome_effects.error("Dane nie zostaly wczytane")
         elif result == 0:
-            self.awesome_effects.succes("dane nie zostaly wczytane, bledny format danych")
+            self.awesome_effects.success("dane nie zostaly wczytane, bledny format danych")
         else:
-            self.awesome_effects.succes("Dane zostaly wczytane, Wczytano " + str(result) + " rekordow")
+            self.awesome_effects.success("Dane zostaly wczytane, Wczytano " + str(result) + " rekordow")
 
     def load_from_url_ext(self):
         self.awesome_effects.info("Podaj url (domyslnie link z tresci zadania)")
@@ -77,7 +77,7 @@ class DatabaseExt(Database):
         elif result == 0:
             self.awesome_effects.error("Nie wczytano zadnych danych")
         else:
-            self.awesome_effects.succes("Plik zstal poprawnie wczytany, wczytano " + str(result) + " rekordow")
+            self.awesome_effects.success("Plik zstal poprawnie wczytany, wczytano " + str(result) + " rekordow")
 
     def add_record_ext(self):
         self.awesome_effects.info("Podaj dane oddzielone spacja w kolejnosci: imie nazwisko")
@@ -93,7 +93,7 @@ class DatabaseExt(Database):
             result = self.add_record(data[0], data[1], data[2], data[3])
 
         if result:
-            self.awesome_effects.succes("Rekord zostal dodany")
+            self.awesome_effects.success("Rekord zostal dodany")
         else:
             self.awesome_effects.error("Niepoprawne dane, rekord nie zostal dodany")
 
@@ -102,7 +102,7 @@ class DatabaseExt(Database):
         id_in = input()
         self.awesome_effects.progress()
         if self.remove_record(id_in):
-            self.awesome_effects.succes("Rekord zostal usuniety")
+            self.awesome_effects.success("Rekord zostal usuniety")
         else:
             self.awesome_effects.error("Brak rekordu o podanym ID")
 
