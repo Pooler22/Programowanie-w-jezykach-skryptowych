@@ -1,0 +1,40 @@
+from lab.database.gui.AwesomeEffects import AwesomeEffects
+from lab.database.database.DatabaseExt import DatabaseExt
+from lab.database.gui.Menu import Menu
+
+
+class Application:
+    def __init__(self):
+        self.db = DatabaseExt()
+        self.width = 0
+
+        self.menu = Menu("Menu: Glowne")
+        self.menu.add_graphic("""asd""")
+        self.load_menu = Menu("Menu: Wczytywanie danych")
+        self.view_menu = Menu("Menu: Wyswietlanie danych")
+
+        self.menu.add_option("Wczytywanie danych ->", self.load_menu.init_menu)
+        self.menu.add_option("Zapisywanie bazy danych do pliku o okreslonej nazwie.", self.db.save_ext)
+        self.menu.add_option("Dodawanie nowych wpisow do bazy danych", self.db.add_record_ext)
+        self.menu.add_option("Usuwanie wpisow z bazy danych", self.db.remove_record_ext)
+        self.menu.add_option("Wyswietlanie danych ->", self.view_menu.init_menu)
+        self.menu.add_option("Sortowanie", self.db.sort_ext)
+        self.menu.add_option("Wyswietlanie listy opcji", self.menu.print)
+
+        self.load_menu.add_option("Wczytywanie bazy danych o okreslonej nazwie.", self.db.load_ext)
+        self.load_menu.add_option("Wczytywanie bazy danych z pliku.", self.db.load_from_file_ext)
+        self.load_menu.add_option("Wczytywanie bazy danych z URL.", self.db.load_from_url_ext)
+        self.load_menu.add_option("Wyswietlanie listy opcji", self.load_menu.print)
+        self.load_menu.add_option("Wroc", self.menu.init_menu)
+
+        self.view_menu.add_option("Wyswietlanie zawartosci bazy danych", self.db.open_db_ext)
+        self.view_menu.add_option("Wyswietlanie rekorów bez wszystkich danych", self.db.open_incomplete_records_ext)
+        self.view_menu.add_option("Wyswietlanie listy opcji", self.load_menu.print)
+        self.view_menu.add_option("Wroc", self.menu.init_menu)
+
+    def init(self):
+        print("Podaj szerokość okna (np: 40)")
+        self.width = input()
+
+        self.menu.init_menu()
+

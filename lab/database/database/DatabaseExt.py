@@ -3,46 +3,47 @@ from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 
 class DatabaseExt(Database):
-    def __init__(self):
+    def __init__(self, width=40):
         super().__init__()
+        self.awesome_effects = AwesomeEffects(width)
 
     def save_ext(self):
-        AwesomeEffects.info("Wprowadz nazwe pliku")
+        self.awesome_effects.info("Wprowadz nazwe pliku")
         file = input()
         if file == "":
-            AwesomeEffects.error("Brak podanej nazwy pliku")
+            self.awesome_effects.error("Brak podanej nazwy pliku")
             return
         else:
             if self.save(file):
-                AwesomeEffects.succes("Dane zostaly zapisane")
+                self.awesome_effects.succes("Dane zostaly zapisane")
             else:
-                AwesomeEffects.error("Dane nie zostaly zapisane, istnieje już plik o takiej nazwie")
-                AwesomeEffects.info("Nadpisac? (Y/N)")
+                self.awesome_effects.error("Dane nie zostaly zapisane, istnieje już plik o takiej nazwie")
+                self.awesome_effects.info("Nadpisac? (Y/N)")
                 if input() == "Y":
                     if self.save(file, True):
-                        AwesomeEffects.succes("Dane zostaly zapisane, plik nadpisany")
+                        self.awesome_effects.succes("Dane zostaly zapisane, plik nadpisany")
                     else:
-                        AwesomeEffects.error("Dane nie zostaly zapisane, plik nie nadpisany")
+                        self.awesome_effects.error("Dane nie zostaly zapisane, plik nie nadpisany")
 
     def load_ext(self):
-        AwesomeEffects.info("Wprowadz nazwe pliku")
+        self.awesome_effects.info("Wprowadz nazwe pliku")
         file = input()
         if file == "":
-            AwesomeEffects.error("Brak podanej nazwy pliku")
+            self.awesome_effects.error("Brak podanej nazwy pliku")
             return
         else:
             if self.load(file):
-                AwesomeEffects.succes("Dane zostaly wczytane")
+                self.awesome_effects.succes("Dane zostaly wczytane")
             else:
-                AwesomeEffects.error("Dane nie zostaly wczytane")
+                self.awesome_effects.error("Dane nie zostaly wczytane")
 
     def load_from_file_ext(self):
-        AwesomeEffects.info("Wprowadz nazwe pliku")
+        self.awesome_effects.info("Wprowadz nazwe pliku")
         file = input()
-        AwesomeEffects.info("Wprowadz rodzaj separatora (np przecinek)")
+        self.awesome_effects.info("Wprowadz rodzaj separatora (np przecinek)")
         separator = input()
         if file == "":
-            AwesomeEffects.error("Brak podanej nazwy pliku")
+            self.awesome_effects.error("Brak podanej nazwy pliku")
             return
         elif separator == "":
             result = self.load_from_file(file)
@@ -50,18 +51,18 @@ class DatabaseExt(Database):
             result = self.load_from_file(file, separator)
 
         if not result:
-            AwesomeEffects.error("Dane nie zostaly wczytane")
+            self.awesome_effects.error("Dane nie zostaly wczytane")
         elif result == 0:
-            AwesomeEffects.succes("dane nie zostaly wczytane, bledny format danych")
+            self.awesome_effects.succes("dane nie zostaly wczytane, bledny format danych")
         else:
-            AwesomeEffects.succes("Dane zostaly wczytane, Wczytano " + str(result) + " rekordow")
+            self.awesome_effects.succes("Dane zostaly wczytane, Wczytano " + str(result) + " rekordow")
 
     def load_from_url_ext(self):
-        AwesomeEffects.info("Podaj url (domyslnie link z tresci zadania)")
+        self.awesome_effects.info("Podaj url (domyslnie link z tresci zadania)")
         url = input("")
-        AwesomeEffects.info("Podaj  separtor id od danych (domyslnie: ) )")
+        self.awesome_effects.info("Podaj  separtor id od danych (domyslnie: ) )")
         separator_id = input()
-        AwesomeEffects.info("Podaj separator miedzy danymi")
+        self.awesome_effects.info("Podaj separator miedzy danymi")
         separator_data = input()
 
         if url.__len__() == 0:
@@ -72,14 +73,14 @@ class DatabaseExt(Database):
             separator_id = ")"
         result = self.load_from_url(url, separator_id, separator_data)
         if not result:
-            AwesomeEffects.error("Nieprawidlowy URL, Danie nie wczytane")
+            self.awesome_effects.error("Nieprawidlowy URL, Danie nie wczytane")
         elif result == 0:
-            AwesomeEffects.error("Nie wczytano zadnych danych")
+            self.awesome_effects.error("Nie wczytano zadnych danych")
         else:
-            AwesomeEffects.succes("Plik zstal poprawnie wczytany, wczytano " + str(result) + " rekordow")
+            self.awesome_effects.succes("Plik zstal poprawnie wczytany, wczytano " + str(result) + " rekordow")
 
     def add_record_ext(self):
-        AwesomeEffects.info("Podaj dane oddzielone spacja w kolejnosci: imie nazwisko")
+        self.awesome_effects.info("Podaj dane oddzielone spacja w kolejnosci: imie nazwisko")
         result = False
         in_data = input()
         data = in_data.split()
@@ -92,36 +93,36 @@ class DatabaseExt(Database):
             result = self.add_record(data[0], data[1], data[2], data[3])
 
         if result:
-            AwesomeEffects.succes("Rekord zostal dodany")
+            self.awesome_effects.succes("Rekord zostal dodany")
         else:
-            AwesomeEffects.error("Niepoprawne dane, rekord nie zostal dodany")
+            self.awesome_effects.error("Niepoprawne dane, rekord nie zostal dodany")
 
     def remove_record_ext(self):
-        AwesomeEffects.info("Podaj ID rekordu do usuniecia")
+        self.awesome_effects.info("Podaj ID rekordu do usuniecia")
         id_in = input()
-        AwesomeEffects.progress()
+        self.awesome_effects.progress()
         if self.remove_record(id_in):
-            AwesomeEffects.succes("Rekord zostal usuniety")
+            self.awesome_effects.succes("Rekord zostal usuniety")
         else:
-            AwesomeEffects.error("Brak rekordu o podanym ID")
+            self.awesome_effects.error("Brak rekordu o podanym ID")
 
     def open_db_ext(self):
         if self.base == {}:
-            AwesomeEffects.info("Baza danych jest pusta")
+            self.awesome_effects.info("Baza danych jest pusta")
         else:
-            AwesomeEffects.info("Wyświetlam baze")
+            self.awesome_effects.info("Wyświetlam baze")
             self.open_db()
 
     def open_incomplete_records_ext(self):
-        AwesomeEffects.info("Wyswietlanie rekordow z danymi niekompletnymi")
+        self.awesome_effects.info("Wyswietlanie rekordow z danymi niekompletnymi")
         self.open_incomplete_records()
 
     def sort_ext(self):
-        AwesomeEffects.info("Czy odwrocic sortowanie?(Y/N)")
+        self.awesome_effects.info("Czy odwrocic sortowanie?(Y/N)")
         reverse = False
         if input() == "Y":
             reverse = True
-        AwesomeEffects.info(
+        self.awesome_effects.info(
             "Podaj atrybut wzgledem ktorego odbedzie sie sortowanie \n1)name 2)surname 3)number 4)email)")
         column_name = input()
         if column_name == "1":
@@ -133,4 +134,4 @@ class DatabaseExt(Database):
         elif column_name == "4":
             self.sort("email", reverse)
         else:
-            AwesomeEffects.error("Nie rozpoznano nazwy atrybutu")
+            self.awesome_effects.error("Nie rozpoznano nazwy atrybutu")
