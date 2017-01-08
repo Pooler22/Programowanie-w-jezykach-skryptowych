@@ -14,16 +14,19 @@ class AbstractDatabase(ABC):
         pass
 
     @abstractmethod
-    def load(self, file_name, separator):
+    def load_from_file(self, file_name, separator):
         pass
 
     @abstractmethod
-    def show(self):
+    def open_db(self):
         pass
 
     @staticmethod
     def jdefault(o):
         return o.__dict__
+
+    def get_data(self):
+        return self.base
 
 
 objectAbstractClass = AbstractDatabase

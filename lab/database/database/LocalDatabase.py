@@ -10,6 +10,7 @@ from lab.database.database.Record import Record
 class LocalDatabase(objectAbstractClass):
     def __init__(self):
         super().__init__()
+        self.awesome_effects = AwesomeEffects()
 
     def save(self, file_name, override=False):
         if os.path.isfile(file_name):
@@ -26,7 +27,7 @@ class LocalDatabase(objectAbstractClass):
                 json.dump(self, fp, default=self.jdefault)
             return True
 
-    def load(self, file_name, separator):
+    def load_from_file(self, file_name, separator):
         if os.path.isfile(file_name):
             i = 0
             self.file_name = file_name
@@ -50,6 +51,15 @@ class LocalDatabase(objectAbstractClass):
             self.base[str(new_id)] = Record(name, surname, sddres, email)
             return True
 
-    def show(self):
-        for (key, value) in self.base.items():
-            AwesomeEffects.info(str(key) + " " + str(value))
+    def open_db(self):
+        if self.base == {}:
+            self.awesome_effects.info("Lokalna Baza danych jest pusta")
+        else:
+            self.awesome_effects.info("Wyświetlam baze")
+            for (key, value) in sorted(self.base.items()):
+                self.awesome_effects.success(str(key) + " " + str(value))
+
+    def get_data(self):
+        return self.base
+
+

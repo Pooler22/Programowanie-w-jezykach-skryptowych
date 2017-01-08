@@ -1,10 +1,14 @@
 from lab.database.database.DatabaseExt import DatabaseExt
+from lab.database.Exercise5 import Exercise5
+from lab.database.Exercise6 import Exercise6
 from lab.database.gui.Menu import Menu
 
 
 class Application:
     def __init__(self):
         self.db = DatabaseExt()
+        self.exe5 = Exercise5()
+        self.exe6 = Exercise6()
         self.width = 0
 
         self.menu = Menu("Menu: Glowne")
@@ -18,6 +22,10 @@ class Application:
         self.menu.add_option("Usuwanie wpisow z bazy danych", self.db.remove_record_ext)
         self.menu.add_option("Wyswietlanie danych ->", self.view_menu.init_menu)
         self.menu.add_option("Sortowanie", self.db.sort_ext)
+        self.menu.add_option("Zadanie 5", self.exe5.exercise5)
+        self.menu.add_option("Zadanie 5_1", self.exe5.exercise5_1)
+        self.menu.add_option("Zadanie 6a", self.exe6.exercise6a)
+        self.menu.add_option("Zadanie 6b", self.exe6.exercise6b)
         self.menu.add_option("Wyswietlanie listy opcji", self.menu.print)
 
         self.load_menu.add_option("Wczytywanie bazy danych o okreslonej nazwie.", self.db.load_ext)
