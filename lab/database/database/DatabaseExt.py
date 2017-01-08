@@ -98,10 +98,11 @@ class DatabaseExt(Database):
             self.awesome_effects.error("Niepoprawne dane, rekord nie zostal dodany")
 
     def remove_record_ext(self):
+        self.open_db_ext()
         self.awesome_effects.info("Podaj ID rekordu do usuniecia")
         id_in = input()
-        self.awesome_effects.progress()
         if self.remove_record(id_in):
+            self.awesome_effects.progress()
             self.awesome_effects.success("Rekord zostal usuniety")
         else:
             self.awesome_effects.error("Brak rekordu o podanym ID")
@@ -111,11 +112,15 @@ class DatabaseExt(Database):
             self.awesome_effects.info("Baza danych jest pusta")
         else:
             self.awesome_effects.info("Wyświetlam baze")
-            self.open_db()
+            tmp_base = self.open_db()
+            for (key, value) in sorted(tmp_base.items()):
+                self.awesome_effects.success(str(key) + " " + str(value))
 
     def open_incomplete_records_ext(self):
         self.awesome_effects.info("Wyswietlanie rekordow z danymi niekompletnymi")
-        self.open_incomplete_records()
+        tmp_base = self.open_incomplete_records()
+        for (key, value) in sorted(tmp_base.items()):
+            self.awesome_effects.success(str(key) + " " + str(value))
 
     def sort_ext(self):
         self.awesome_effects.info("Czy odwrocic sortowanie?(Y/N)")
@@ -123,7 +128,7 @@ class DatabaseExt(Database):
         if input() == "Y":
             reverse = True
         self.awesome_effects.info(
-            "Podaj atrybut wzgledem ktorego odbedzie sie sortowanie \n1)name 2)surname 3)number 4)email)")
+            "Wybierz wg ktorej kolumny wykonac sortowanie \n1)name 2)surname 3)number 4)email)")
         column_name = input()
         if column_name == "1":
             self.sort("name", reverse)

@@ -40,7 +40,8 @@ class Menu(AutoIncrement):
 
     def select_option(self):
         try:
-            self.awesome_effects.info("Wpisz numer opcji( 0 -pomoc):")
+            self.awesome_effects.info("Wpisz numer opcji (0-pomoc):")
+            sys.stdout.write("\033[F")
             option_number = int(input())
             if option_number == 0:
                 self.init_menu()

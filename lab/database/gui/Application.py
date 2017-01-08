@@ -1,6 +1,7 @@
 from lab.database.database.DatabaseExt import DatabaseExt
 from lab.database.gui.Menu import Menu
 
+
 class Application:
     def __init__(self):
         self.db = DatabaseExt()
@@ -32,4 +33,3 @@ class Application:
 
     def init(self):
         self.menu.init_menu()
-

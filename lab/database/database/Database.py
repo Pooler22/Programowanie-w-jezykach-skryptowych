@@ -37,7 +37,6 @@ class Database(AutoIncrement):
         if os.path.isfile(file_name):
             self.index = 0
             self.file_name = file_name
-            a = []
             a = json.load(open(self.file_name, 'r'))
             self.index = a["index"]
             self.file_name = a["file_name"]
@@ -56,7 +55,17 @@ class Database(AutoIncrement):
             self.index = index = 0
             self.file_name = file_name
             for line in (open(self.file_name, 'r', encoding='utf-8')):
-                name, surname, address, email = line.split(separator)
+                tmp = line.split(separator)
+                name = ""
+                surname = ""
+                address = ""
+                email = ""
+
+                if tmp.__len__() == 2:
+                    name, surname = line.split(separator)
+                elif tmp.__len__() == 4:
+                    name, surname, address, email = line.split(separator)
+
                 if self.add_record(name, surname, address, email):
                     index += 1
             return index
@@ -64,7 +73,6 @@ class Database(AutoIncrement):
             return False
 
     def load_from_url(self, file_url, separator_id=")", separator_data=","):
-        index = 0
         if file_url == "":
             return False
         else:
@@ -94,8 +102,8 @@ class Database(AutoIncrement):
             return True
 
     def remove_record(self, id_in):
-        if id_in in self.base:
-            del self.base[id_in]
+        if int(id_in) in self.base.keys():
+            del self.base[int(id_in)]
             return True
         else:
             return False
@@ -105,11 +113,10 @@ class Database(AutoIncrement):
          sorted(self.base.items(), key=lambda x: x[1].__getattribute__(column_name))]
 
     def open_db(self):
-        for (key, value) in sorted(self.base.items()):
-            AwesomeEffects.info(str(key) + " " + str(value))
+        return self.base
 
     def open_incomplete_records(self):
-        {AwesomeEffects.info(str(key) + " " + str(record)) for key, record in sorted(self.base.items()) if record.is_incomplete_records()}
+        return {k: v for k, v in sorted(self.base.items()) if v.is_incomplete_records()}
 
     def __eq__(self, other):
         return self.name.__eq__(other.name) and self.base.__eq__(other.base)

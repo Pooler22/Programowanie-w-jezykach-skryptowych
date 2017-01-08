@@ -30,9 +30,7 @@ class AwesomeEffects:
         self.print_ext(Fore.CYAN, text)
 
     def info(self, text):
-        print('Xdziala 6')
         self.print_ext(Fore.BLUE, text)
-        print('Xdziala 6')
 
     def line(self, text='═', start='╠', end='╣'):
         tmp0 = text * 62
@@ -50,18 +48,12 @@ class AwesomeEffects:
         self.print_ext(Fore.RED, text)
 
     def print_ext(self, color, text):
-        print('dziala 1')
         sys.stdout.write(color)
-        print('dziala 2')
         sys.stdout.write(self.colorBack)
-        print('dziala 3')
         tmp1 = '║ ' + '{:60}'.format(text) + ' ║'
-        print('dziala 4')
         tmp2 = '{:^' + str(self.get_window_size()[0]) + '}'
-        print('dziala 5')
         sys.stdout.write(tmp2.format(tmp1) + '\n')
         sys.stdout.write(self.colorFore)
-        print('dziala 6')
 
     @staticmethod
     def get_window_size():
