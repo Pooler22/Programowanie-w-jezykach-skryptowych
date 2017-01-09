@@ -7,16 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="734c919d-4e67-4341-bd4c-06f83845ed5f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lab/database/Exercise5.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lab/database/dane_lokalne.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lab/database/MainDatabase.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lab/database/MainRecords.py" afterPath="$PROJECT_DIR$/lab/database/Exercise6.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/database/AbstractDatabase.py" afterPath="$PROJECT_DIR$/lab/database/database/AbstractDatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/database/LocalDatabase.py" afterPath="$PROJECT_DIR$/lab/database/database/LocalDatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/database/RemoteDatabase.py" afterPath="$PROJECT_DIR$/lab/database/database/RemoteDatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/gui/Application.py" afterPath="$PROJECT_DIR$/lab/database/gui/Application.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/Exercise5.py" afterPath="$PROJECT_DIR$/lab/database/Exercise5.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab/database/Exercise6.py" afterPath="$PROJECT_DIR$/lab/database/Exercise6.py" />
     </list>
     <ignored path="Programowanie-w-jezykach-skryptowych.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,6 +25,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Programowanie-w-jezykach-skryptowych$MainRecords.coverage" NAME="MainRecords Coverage Results" MODIFIED="1480329240170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab/database" />
     <SUITE FILE_PATH="coverage/Programowanie-w-jezykach-skryptowych$Main.coverage" NAME="Main Coverage Results" MODIFIED="1483917493133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab/database" />
+    <SUITE FILE_PATH="coverage/Programowanie-w-jezykach-skryptowych$Exercise6.coverage" NAME="Exercise6 Coverage Results" MODIFIED="1483920531847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab/database" />
     <SUITE FILE_PATH="coverage/Programowanie-w-jezykach-skryptowych$Exercise5.coverage" NAME="Exercise5 Coverage Results" MODIFIED="1483917461694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab/database" />
     <SUITE FILE_PATH="coverage/Programowanie-w-jezykach-skryptowych$Unittests_in_Database.coverage" NAME="Unittests in Database Coverage Results" MODIFIED="1479549338459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab/tests" />
     <SUITE FILE_PATH="coverage/Programowanie-w-jezykach-skryptowych$Menu.coverage" NAME="Menu Coverage Results" MODIFIED="1479554751412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab/database" />
@@ -60,11 +55,55 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="610">
-                <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+              <first_editor relative-caret-position="252">
+                <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exercise5.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab/database/Exercise5.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exercise6.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab/database/Exercise6.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sre_parse.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/sre_parse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Database.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab/database/database/Database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="93" column="29" lean-forward="true" selection-start-line="74" selection-start-column="4" selection-end-line="93" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,8 +128,6 @@
       <find>open_db_ext</find>
       <find>fr</find>
       <find>for</find>
-      <find>save</find>
-      <find>load</find>
       <find>jdefault</find>
       <find>sopen_db</find>
       <find>open_db</find>
@@ -99,6 +136,9 @@
       <find>tes</find>
       <find>test</find>
       <find>tests</find>
+      <find>print</find>
+      <find>save</find>
+      <find>load</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,7 +190,6 @@
         <option value="$PROJECT_DIR$/lab/database/plik" />
         <option value="$PROJECT_DIR$/lab/database/database/DatabaseExt.py" />
         <option value="$PROJECT_DIR$/lab/database/MainDatabase.py" />
-        <option value="$PROJECT_DIR$/lab/database/Exercise6.py" />
         <option value="$PROJECT_DIR$/lab/database/gui/Application.py" />
         <option value="$PROJECT_DIR$/lab/database/dane_lokalne.txt" />
         <option value="$PROJECT_DIR$/lab/database/database/AbstractDatabase.py" />
@@ -159,6 +198,7 @@
         <option value="$PROJECT_DIR$/lab/database/database/RemoteDatabase.py" />
         <option value="$PROJECT_DIR$/lab/database/Exercise5.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/lab/database/Exercise6.py" />
       </list>
     </option>
   </component>
@@ -315,7 +355,7 @@
       <recent name="C:\Users\pooler\PycharmProjects\Programowanie-w-jezykach-skryptowych\lab\exercise" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Main">
+  <component name="RunManager" selected="Python.Exercise6">
     <configuration default="false" name="MainDatabase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -389,6 +429,24 @@
       <module name="untitled" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab/database/Exercise5.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Exercise6" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab/database" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab/database/Exercise6.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -646,20 +704,22 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="6">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.Main" />
       <item index="1" class="java.lang.String" itemvalue="Python.Menu" />
       <item index="2" class="java.lang.String" itemvalue="Python.MainDatabase" />
       <item index="3" class="java.lang.String" itemvalue="Python.MainRecords" />
       <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in Database" />
       <item index="5" class="java.lang.String" itemvalue="Python.Exercise5" />
+      <item index="6" class="java.lang.String" itemvalue="Python.Exercise6" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.Exercise5" />
-        <item index="1" class="java.lang.String" itemvalue="Python.MainRecords" />
-        <item index="2" class="java.lang.String" itemvalue="Python.MainDatabase" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in Database" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.Exercise6" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Exercise5" />
+        <item index="2" class="java.lang.String" itemvalue="Python.MainRecords" />
+        <item index="3" class="java.lang.String" itemvalue="Python.MainDatabase" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in Database" />
       </list>
     </recent_temporary>
   </component>
@@ -740,7 +800,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483874460262</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="check exercise 5 5_1">
+      <created>1483917596238</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1483917596238</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -790,11 +857,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13219616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3391116" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3784219" sideWeight="0.2246596" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2561629" sideWeight="0.2531983" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4460536" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36441585" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2561629" sideWeight="0.74680173" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54279524" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -842,7 +909,8 @@
     <MESSAGE value="hotfix" />
     <MESSAGE value="fix run in terminal" />
     <MESSAGE value="check exercise 3-4" />
-    <option name="LAST_COMMIT_MESSAGE" value="check exercise 3-4" />
+    <MESSAGE value="check exercise 5 5_1" />
+    <option name="LAST_COMMIT_MESSAGE" value="check exercise 5 5_1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -869,10 +937,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/unittest/suite.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/tcunittest.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/utrunner.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/contextlib.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/unittest/case.py" />
     <entry file="file://$PROJECT_DIR$/lab/tests/Record.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -906,6 +970,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,6 +1077,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,17 +1088,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab/database/Exercise6.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab/database/gui/Application.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="31" column="87" lean-forward="true" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#57#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,22 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab/database/database/Database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab/database/database/DatabaseExt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="122" column="69" lean-forward="false" selection-start-line="121" selection-start-column="7" selection-end-line="122" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab/database/plik">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1094,21 +1140,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab/database/Exercise5.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="973" column="0" lean-forward="false" selection-start-line="973" selection-start-column="0" selection-end-line="973" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/database/plik1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/database/plik2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="0" column="14807" lean-forward="false" selection-start-line="0" selection-start-column="14807" selection-end-line="0" selection-end-column="14807" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/database/plik1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120761">
+          <caret line="0" column="71" lean-forward="true" selection-start-line="0" selection-start-column="71" selection-end-line="0" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/database/database/DatabaseExt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/sre_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="637" column="0" lean-forward="false" selection-start-line="637" selection-start-column="0" selection-end-line="637" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/database/database/Database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="93" column="29" lean-forward="true" selection-start-line="74" selection-start-column="4" selection-end-line="93" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/database/Exercise5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="47" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+    <entry file="file://$PROJECT_DIR$/lab/database/Exercise6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="973" column="0" lean-forward="false" selection-start-line="973" selection-start-column="0" selection-end-line="973" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="462">
+          <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1121,8 +1225,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="610">
-            <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+          <first_editor relative-caret-position="252">
+            <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
             <folding />
           </first_editor>
           <second_editor />

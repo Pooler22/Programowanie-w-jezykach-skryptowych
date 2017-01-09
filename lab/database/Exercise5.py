@@ -2,9 +2,12 @@ import random
 from random import randint
 from lab.database.database.LocalDatabase import LocalDatabase
 from lab.database.database.RemoteDatabase import RemoteDatabase
-
+from lab.database.gui.AwesomeEffects import AwesomeEffects
 
 class Exercise5:
+    def __init__(self):
+        self.awesome_effects = AwesomeEffects()
+
     @staticmethod
     def generate_random_databases_objects_to_list(count=10):
         ld = LocalDatabase()
@@ -50,5 +53,5 @@ class Exercise5:
         [a.open_db() for a in object_with_random_databases_objects]
 
 
-exe = Exercise5()
-exe.exercise5_1()
+# exe = Exercise5()
+# exe.exercise5_1()

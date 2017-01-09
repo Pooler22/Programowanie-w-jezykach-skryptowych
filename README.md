@@ -33,14 +33,27 @@ Imie(znak nie bedacy bialem znakiem lub litera)Nazwisko~~
 
 5_1. ~~Przygotowac obiekt losowo generujacy liste obiektow z zadania 5 oraz drugi obiekt, ktory generuje losowe elementy(dwoch rodzajow) i dodaje do jednego z dwoch typow obiektow. Jeden z generatorow danych ma pobierac je z internetu.~~
 
-6a W skrypcie prosze pobrac imiona z URL (SA W KATALOGU PRZEDMIOTU)(URL skladacie sami :)), posortowac, wystwietlic posortowana liste i liczbe rekordow. To samo nalezy zrobic z lista nazwisk.
-Imiona:
-imiona.txt
-Nazwiska:
-nazwiska.txt
+6a ~~W skrypcie prosze pobrac imiona z URL (SA W KATALOGU PRZEDMIOTU)(URL skladacie sami :)), posortowac, wystwietlic posortowana liste i liczbe rekordow. To samo nalezy zrobic z lista nazwisk.
+Imiona: imiona.txt
+Nazwiska: nazwiska.txt~~
 
-6b Z danych pobranych w zadaniu 6a wygenerowac liste w postaci:
+6b ~~Z danych pobranych w zadaniu 6a wygenerowac liste w postaci:
 Numer, Imie, Naziwsko
 Liste zapisac do pliku. Po "wykorzystaniu" wszystkich imion nalezy zaczac od
 poczatku listy imion. Wpisow w pliku ma byc tyle ile jest nazwisk.
-Wynik wyswietlic
+Wynik wyswietlic~~
+
+6c Dodac do skryptu dwie opcje:
+~~1) Zapisania wygenerowanej listy do pliku~~
+2) Wyslania wygenerowanej listy na serwer (odpowiedz.php)
+
+6d
+~~Wykorzystujac przykladowy plik (hack.txt) prosze policzyc ile razy wystepuje
+slowo "komputer".~~
+
+6e
+Wykorzystujac przykladowy plik (hack.txt) prosze znalezc najdluzszy "ciag
+modulacyjny".
+
+6f
+~~Prosze wyswietlic dane wygenerowane w zadaniu 6b z polskimi znakami.~~
