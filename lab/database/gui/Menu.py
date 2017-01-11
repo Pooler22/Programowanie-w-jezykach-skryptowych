@@ -26,7 +26,8 @@ class Menu(AutoIncrement):
         self.awesome_effects.clean()
         if self.graphic != "":
             self.awesome_effects.line('═', '╔', '╗')
-            self.awesome_effects.info(self.graphic)
+            for element in self.graphic.split("\n"):
+                self.awesome_effects.info(element)
             self.awesome_effects.line('═', '╚', '╝')
 
         self.awesome_effects.line('═', '╔', '╗')

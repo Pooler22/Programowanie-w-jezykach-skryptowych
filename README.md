@@ -5,6 +5,12 @@ pip install python-color-logger
 pip install asciimatics
 
 
+Run:
+
+open: lab\database
+
+py -3 Main.py
+
 Zadania:
 
 3. ~~Na bazie zadania 2 dodac do skryptu mozliwosc obslugi "bazy danych" w pliku.
