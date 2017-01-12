@@ -13,7 +13,7 @@ class Application:
 
         self.menu = Menu("Menu: Glowne")
         self.menu.add_graphic("""
-            Witaj w aplikacji moja baza :)
+              Witaj w aplikacji moja baza :)
 
             |                         _...._
          \  _  /                    .::o:::::.
@@ -43,8 +43,12 @@ class Application:
         self.menu.add_option("Sortowanie", self.db.sort_ext)
         self.menu.add_option("Zadanie 5", self.exe5.exercise5)
         self.menu.add_option("Zadanie 5_1", self.exe5.exercise5_1)
-        self.menu.add_option("Zadanie 6a", self.exe6.exercise6a)
-        self.menu.add_option("Zadanie 6b", self.exe6.exercise6b)
+        self.menu.add_option("Zadanie 6 posortowane dane", self.exe6.exercise6a)
+        self.menu.add_option("Zadanie 6 bwygenerowane dane + polskie znaki", self.exe6.exercise6b)
+        self.menu.add_option("Zadanie 6c zpis", self.exe6.save_data_from_exercise_6c)
+        self.menu.add_option("Zadanie 6c upload", self.exe6.upload_data_from_exercise_6c)
+        self.menu.add_option("Zadanie 6d komputer", self.exe6.exercise6d)
+        self.menu.add_option("Zadanie 6e", self.exe6.exercise6e)
         self.menu.add_option("Wyswietlanie listy opcji", self.menu.print)
 
         self.load_menu.add_option("Wczytywanie bazy danych o okreslonej nazwie.", self.db.load_ext)

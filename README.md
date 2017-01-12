@@ -51,15 +51,15 @@ Wynik wyswietlic~~
 
 6c Dodac do skryptu dwie opcje:
 ~~1) Zapisania wygenerowanej listy do pliku~~
-2) Wyslania wygenerowanej listy na serwer (odpowiedz.php)
+~~2) Wyslania wygenerowanej listy na serwer (odpowiedz.php)~~
 
 6d
 ~~Wykorzystujac przykladowy plik (hack.txt) prosze policzyc ile razy wystepuje
 slowo "komputer".~~
 
 6e
-Wykorzystujac przykladowy plik (hack.txt) prosze znalezc najdluzszy "ciag
-modulacyjny".
+~~Wykorzystujac przykladowy plik (hack.txt) prosze znalezc najdluzszy "ciag
+modulacyjny".~~
 
 6f
 ~~Prosze wyswietlic dane wygenerowane w zadaniu 6b z polskimi znakami.~~

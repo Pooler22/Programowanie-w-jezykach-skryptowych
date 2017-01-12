@@ -1,13 +1,14 @@
 import urllib.request
 from lab.database.database.DatabaseExt import DatabaseExt
-from lab.database.database.Database import Database
 from lab.database.gui.AwesomeEffects import AwesomeEffects
 import re
+import urllib2
 
 
 class Exercise6:
     def __init__(self):
         self.path = "http://mmajchr.kis.p.lodz.pl/pwjs/"
+        self.response = urllib.request.urlopen(self.path).read().decode('utf-8')
         self.files = ["imiona.txt", "nazwiska.txt"]
         self.awesome_effects = AwesomeEffects()
         self.db = DatabaseExt()
@@ -18,11 +19,11 @@ class Exercise6:
 
     def exercise6a(self):
         for file in self.files:
-            print("\n" + file)
+            self.awesome_effects.success("\n" + file)
             data = self.load_from_url(self.path, file)
             for i in sorted(data):
-                print(i)
-            print(data.__len__())
+                self.awesome_effects.success(i)
+            self.awesome_effects.success(data.__len__())
 
     def exercise6b(self, ):
         names = self.load_from_url(self.path, self.files[0])
@@ -41,28 +42,28 @@ class Exercise6:
         self.db.save_ext()
 
     def upload_data_from_exercise_6c(self):
-        self.db.save_ext()
+        names = self.load_from_url(self.path, self.files[0])
+        surnames = self.load_from_url(self.path, self.files[1])
+        output = ""
+        for i in range(0, surnames.__len__() - 1):
+            output += (str(i + 1) + ", " + names[i % names.__len__()] + ", " + surnames[i])
+        self.send("208323", output)
 
-    def exercise6d(self, file_url):
-        if file_url == "":
-            return False
-        else:
-            response = urllib.request.urlopen(file_url).read().decode('utf-8')
-            i = 0
-            for line in response.split('komputer'):
-                print(line)
-            print(response.split('komputer').__len__() - 1)
+    # todo: refactoring
+    @staticmethod
+    def send(file_name, file_text):
+        data = ("Content-Disposition: form-data; name=\"file\"; filename=\"{0}\"\r\n"
+                "Content-Type: text/plain\r\n"
+                "{1}\r\n") \
+            .format(file_name, file_text)
+        return urllib2.urlopen(urllib2.Request("http://mmajchr.kis.p.lodz.pl/pwjs/odpowiedz.php", data,
+                                               {'Content-Type': 'text/xml'})).read()
 
-    def exercise6f(self, file_url):
-        if file_url == "":
-            return False
-        else:
-            response = urllib.request.urlopen(file_url).read().decode('utf-8')
-            i = 0
-            print(max([line.__len__() for line in response.replace("\n"," ").split(" ")]))
-            # print(response.split(' ').split('\n').__len__() - 1)
+    def exercise6d(self):
+        response = urllib.request.urlopen(self.path).read().decode('utf-8')
+        self.awesome_effects.success(re.findall("(?:[^a-zA-Z]|^)komputer(?:[^a-zA-Z]|$)", response).__len__())
+        self.awesome_effects.success(re.findall("komputer", response).__len__())
 
-
-exe = Exercise6()
-# exe.exercise6b()
-exe.exercise6f("http://mmajchr.kis.p.lodz.pl/pwjs/hack.txt")
+    def exercise6e(self):
+        response = urllib.request.urlopen(self.path).read().decode('utf-8')
+        self.awesome_effects.success(re.findall(r"((?:p[piouaue]+ )+p[piouaue])", response))

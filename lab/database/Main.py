@@ -2,8 +2,8 @@ import sys
 from random import randint
 from asciimatics.screen import Screen
 
-sys.path.insert(1, "C:\\Users\\208323.CARBON\\Desktop\\Programowanie-w-jezykach-skryptowych\\")
-# sys.path.insert(1, "C:\\Users\\pooler\\PycharmProjects\\Programowanie-w-jezykach-skryptowych\\")
+# sys.path.insert(1, "C:\\Users\\208323.CARBON\\Desktop\\Programowanie-w-jezykach-skryptowych\\")
+sys.path.insert(1, "C:\\Users\\pooler\\PycharmProjects\\Programowanie-w-jezykach-skryptowych\\")
 from lab.database.gui.Application import Application
 
 
